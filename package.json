@@ -1,0 +1,25 @@
+{
+  "name": "annotatedtext",
+  "version": "0.1.0",
+  "description": "A lightweight JavaScript library for converting various markup documents into an annotated text format consumable by LanguageTool.",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha --reporter spec"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/languagetool-language-server/annotatedtext.git"
+  },
+  "keywords": [
+    "languagetool",
+    "annotated",
+    "text",
+    "builder"
+  ],
+  "author": "David L. Day <david@davidlday.com> (https://www.davidlday.com)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/languagetool-language-server/annotatedtext/issues"
+  },
+  "homepage": "https://github.com/languagetool-language-server/annotatedtext#readme"
+}
