@@ -1,5 +1,4 @@
 [![Build Status](https://travis-ci.org/languagetool-language-server/annotatedtext.svg?branch=master)](https://travis-ci.org/languagetool-language-server/annotatedtext)
-
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/6358e514e62e477d98469e070535eb24)](https://www.codacy.com/app/LanguageTool-Language-Server/annotatedtext?utm_source=github.com&utm_medium=referral&utm_content=languagetool-language-server/annotatedtext&utm_campaign=Badge_Grade)
 
 # annotatedtext
