@@ -1,16 +1,8 @@
-'use strict'
+"use strict"
 
-var unified = require('unified');
-var mark = require('remark-parse');
-var hype = require('rehype-parse')
-
-module.exports = {
-  md,
-  html,
-  build,
-  collect,
-  compose
-}
+var unified = require("unified");
+var mark = require("remark-parse");
+var hype = require("rehype-parse")
 
 function html(text, rehypeoptions = {emitParseErrors: false, duplicateAttribute: false}) {
   const processor = unified()
@@ -20,7 +12,7 @@ function html(text, rehypeoptions = {emitParseErrors: false, duplicateAttribute:
 
 function md(text, remarkoptions = { commonmark: true }) {
   const processor = unified()
-    .use(mark, remarkoptions)
+    .use(mark, remarkoptions);
   return build(text, processor.parse);
 }
 
@@ -34,7 +26,7 @@ function collect(tokens, nodes = []) {
   if (Array.isArray(tokens)) {
     for (let token of tokens) {
       const children = token.children;
-      if (token.type == 'text') {
+      if (token.type === "text") {
         nodes.push({
           "text": token.value, "offset":
             { "start": token.position.start.offset, "end": token.position.end.offset }
@@ -77,4 +69,12 @@ function compose(text, textnodes) {
     });
   }
   return { "annotation": annotatednodes };
+}
+
+module.exports = {
+  md,
+  html,
+  build,
+  collect,
+  compose
 }
