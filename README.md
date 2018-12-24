@@ -5,7 +5,7 @@
 
 A lightweight JavaScript library for converting markup documents into an annotated text format consumable by LanguageTool.
 
-# Usage
+## Usage
 
 To generate annotated text from markdown, leveraging [remark-parse](https://github.com/remarkjs/remark/tree/master/packages/remark-parse):
 
@@ -27,12 +27,11 @@ var annotatedtext = builder.html(hypertext);
 
 Additional formats can be implemented using the [API](#API). See below for details.
 
-
-# Motivation
+## Motivation
 
 Provide an easier way of running LanguageTool on markup documents by separating the text from the markup.
 
-# Installation
+## Installation
 
 npm:
 
@@ -40,15 +39,15 @@ npm:
 npm install annotatedtext
 ```
 
-# API
+## API
 
-## `build(text, parse)`
+### `build(text, parse)`
 
-## `compose(text, textnodes)`
+### `compose(text, textnodes)`
 
-## `collect(tokens, [nodes])`
+### `collect(tokens, [nodes])`
 
-# Tests
+## Tests
 
 Unit tests are also run via npm:
 
@@ -56,10 +55,10 @@ Unit tests are also run via npm:
 npm test
 ```
 
-# Contributors
+## Contributors
 
 Let people know how they can dive into the project, include important links to things like issue trackers, irc, twitter accounts if applicable.
 
-# License
+## License
 
 [MIT](LICENSE) © David L. Day
