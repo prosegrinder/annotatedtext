@@ -4,23 +4,23 @@ var unified = require("unified");
 var mark = require("remark-parse");
 var hype = require("rehype-parse");
 
-function collect(tokens, nodes = []) {
-  if (Array.isArray(tokens)) {
-    for (let token of tokens) {
-      const children = token.children;
-      if (token.type === "text") {
-        nodes.push({
-          "text": token.value, "offset":
-            { "start": token.position.start.offset, "end": token.position.end.offset }
+function collect(astnodes, textnodes = []) {
+  if (Array.isArray(astnodes)) {
+    for (let astnode of astnodes) {
+      const astchildren = astnode.children;
+      if (astnode.type === "text") {
+        textnodes.push({
+          "text": astnode.value, "offset":
+            { "start": astnode.position.start.offset, "end": astnode.position.end.offset }
         });
       }
-      if (children) {
-        nodes = collect(children, nodes);
+      if (astchildren) {
+        textnodes = collect(astchildren, textnodes);
       }
     }
-    return nodes;
+    return textnodes;
   } else {
-    return collect([tokens], nodes);
+    return collect([astnodes], textnodes);
   }
 }
 
@@ -54,8 +54,8 @@ function compose(text, textnodes) {
 }
 
 function build(text, parse) {
-  const root = parse(text);
-  const textnodes = collect(root);
+  const astnodes = parse(text);
+  const textnodes = collect(astnodes);
   return compose(text, textnodes);
 }
 
