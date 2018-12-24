@@ -4,24 +4,6 @@ var unified = require("unified");
 var mark = require("remark-parse");
 var hype = require("rehype-parse")
 
-function html(text, rehypeoptions = {emitParseErrors: false, duplicateAttribute: false}) {
-  const processor = unified()
-    .use(hype, rehypeoptions);
-  return build(text, processor.parse);
-}
-
-function md(text, remarkoptions = { commonmark: true }) {
-  const processor = unified()
-    .use(mark, remarkoptions);
-  return build(text, processor.parse);
-}
-
-function build(text, parse) {
-  const root = parse(text);
-  const textnodes = collect(root);
-  return compose(text, textnodes);
-}
-
 function collect(tokens, nodes = []) {
   if (Array.isArray(tokens)) {
     for (let token of tokens) {
@@ -69,6 +51,24 @@ function compose(text, textnodes) {
     });
   }
   return { "annotation": annotatednodes };
+}
+
+function build(text, parse) {
+  const root = parse(text);
+  const textnodes = collect(root);
+  return compose(text, textnodes);
+}
+
+function html(text, rehypeoptions = {emitParseErrors: false, duplicateAttribute: false}) {
+  const processor = unified()
+    .use(hype, rehypeoptions);
+  return build(text, processor.parse);
+}
+
+function md(text, remarkoptions = { commonmark: true }) {
+  const processor = unified()
+    .use(mark, remarkoptions);
+  return build(text, processor.parse);
 }
 
 module.exports = {
