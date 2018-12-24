@@ -1,8 +1,8 @@
-"use strict"
+"use strict";
 
 var unified = require("unified");
 var mark = require("remark-parse");
-var hype = require("rehype-parse")
+var hype = require("rehype-parse");
 
 function collect(tokens, nodes = []) {
   if (Array.isArray(tokens)) {
@@ -77,4 +77,4 @@ module.exports = {
   build,
   collect,
   compose
-}
+};
