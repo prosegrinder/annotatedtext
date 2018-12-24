@@ -15,46 +15,45 @@ module.exports = {
 function html(text, rehypeoptions = {emitParseErrors: false, duplicateAttribute: false}) {
   const processor = unified()
     .use(hype, rehypeoptions);
-    const annotatedtext = build(text, processor.parse);
-    return annotatedtext;
+  return build(text, processor.parse);
 }
 
 function md(text, remarkoptions = { commonmark: true }) {
   const processor = unified()
     .use(mark, remarkoptions)
-  const annotatedtext = build(text, processor.parse);
-  return annotatedtext;
+  return build(text, processor.parse);
 }
 
 function build(text, parse) {
   const root = parse(text);
-  const textnodes = collect([root]);
-  const annotatedtext = compose(text, textnodes);
-  return annotatedtext;
+  const textnodes = collect(root);
+  return compose(text, textnodes);
 }
 
 function collect(tokens, nodes = []) {
-  for (var i = 0; i < tokens.length; i++) {
-    const token = tokens[i];
-    const children = token.children;
-    if (token.type == 'text') {
-      nodes.push({
-        "text": token.value, "offset":
-          { "start": token.position.start.offset, "end": token.position.end.offset }
-      });
+  if (Array.isArray(tokens)) {
+    for (let token of tokens) {
+      const children = token.children;
+      if (token.type == 'text') {
+        nodes.push({
+          "text": token.value, "offset":
+            { "start": token.position.start.offset, "end": token.position.end.offset }
+        });
+      }
+      if (children) {
+        nodes = collect(children, nodes);
+      }
     }
-    if (children) {
-      nodes = collect(children, nodes);
-    }
+    return nodes;
+  } else {
+    return collect([tokens], nodes);
   }
-  return nodes;
 }
 
 function compose(text, textnodes) {
   var annotatednodes = [];
   var prior = null;
-  for (var i = 0; i < textnodes.length; i++) {
-    const current = textnodes[i];
+  for (let current of textnodes) {
     if (prior != null) {
       annotatednodes.push({
         "markup": text.substring(prior.offset.end, current.offset.start),
