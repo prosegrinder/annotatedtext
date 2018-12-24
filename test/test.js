@@ -15,7 +15,7 @@ describe("#md()", function () {
   it("should match the original document exactly", function () {
     const expected = fs.readFileSync("./test/test.md", "utf8");
     const annotatedtext = builder.md(expected);
-    const annotation = annotatedtext.annotation
+    const annotation = annotatedtext.annotation;
     let result = "";
     for (let node of annotation) {
       const text = node.text ? node.text : node.markup;
