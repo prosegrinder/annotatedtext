@@ -72,9 +72,7 @@ function md(text, remarkoptions = { commonmark: true }) {
 }
 
 module.exports = {
-  md,
-  html,
   build,
-  collect,
-  compose
+  html,
+  md
 };
