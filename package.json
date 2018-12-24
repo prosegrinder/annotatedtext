@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/languagetool-language-server/annotatedtext.git"
+    "url": "git+https://github.com/prosegrinder/annotatedtext.git"
   },
   "keywords": [
     "languagetool",
@@ -19,9 +19,9 @@
   "author": "David L. Day <david@davidlday.com> (https://www.davidlday.com)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/languagetool-language-server/annotatedtext/issues"
+    "url": "https://github.com/prosegrinder/annotatedtext/issues"
   },
-  "homepage": "https://github.com/languagetool-language-server/annotatedtext#readme",
+  "homepage": "https://github.com/prosegrinder/annotatedtext#readme",
   "dependencies": {
     "rehype-parse": "^6.0.0",
     "remark-parse": "^6.0.3",
