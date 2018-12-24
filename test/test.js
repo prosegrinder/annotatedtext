@@ -37,7 +37,7 @@ describe("#html()", function () {
   it("should match the original document exactly", function () {
     const expected = fs.readFileSync("./test/test.html", "utf8");
     const annotatedtext = builder.html(expected);
-    const annotation = annotatedtext.annotation
+    const annotation = annotatedtext.annotation;
     let result = "";
     for (let node of annotation) {
       const text = node.text ? node.text : node.markup;
