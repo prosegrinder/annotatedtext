@@ -183,94 +183,94 @@
       }
     },
     {
-      "markup": "\n\n  * ",
+      "markup": "\n\n* ",
       "offset": {
         "start": 930,
-        "end": 936
+        "end": 934
       }
     },
     {
       "text": "Create a simple, lightweight parser in JavaScript.",
       "offset": {
-        "start": 936,
-        "end": 986
+        "start": 934,
+        "end": 984
       }
     },
     {
-      "markup": "\n  * ",
+      "markup": "\n* ",
       "offset": {
-        "start": 986,
-        "end": 991
+        "start": 984,
+        "end": 987
       }
     },
     {
       "text": "Be portable across editors that leverage JavaScript in their plugins.",
       "offset": {
-        "start": 991,
-        "end": 1060
+        "start": 987,
+        "end": 1056
       }
     },
     {
-      "markup": "\n  * ",
+      "markup": "\n* ",
       "offset": {
-        "start": 1060,
-        "end": 1065
+        "start": 1056,
+        "end": 1059
       }
     },
     {
       "text": "Map various formatting languages to the simple Annotated Text format described in LanguageTool's API.",
       "offset": {
-        "start": 1065,
-        "end": 1166
+        "start": 1059,
+        "end": 1160
       }
     },
     {
-      "markup": "\n  * ",
+      "markup": "\n* ",
       "offset": {
-        "start": 1166,
-        "end": 1171
+        "start": 1160,
+        "end": 1163
       }
     },
     {
       "text": "Use this readme as a test document.",
       "offset": {
-        "start": 1171,
-        "end": 1206
+        "start": 1163,
+        "end": 1198
       }
     },
     {
       "markup": "\n\n",
       "offset": {
-        "start": 1206,
-        "end": 1208
+        "start": 1198,
+        "end": 1200
       }
     },
     {
       "text": "Oh, and because we shouldn't assume the text ends with text, here's a link to one of my favorite quotes by Socrates:\n",
       "offset": {
-        "start": 1208,
-        "end": 1325
+        "start": 1200,
+        "end": 1317
       }
     },
     {
       "markup": "[",
       "offset": {
-        "start": 1325,
-        "end": 1326
+        "start": 1317,
+        "end": 1318
       }
     },
     {
       "text": "\"I am the wisest man alive, for I know one thing, and that is that I know nothing.\"",
       "offset": {
-        "start": 1326,
-        "end": 1409
+        "start": 1318,
+        "end": 1401
       }
     },
     {
       "markup": "](https://www.brainyquote.com/quotes/socrates_125872)\n",
       "offset": {
-        "start": 1409,
-        "end": 1463
+        "start": 1401,
+        "end": 1455
       }
     }
   ]

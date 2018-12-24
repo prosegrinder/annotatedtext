@@ -17,10 +17,10 @@ Tdhis makes perfect sense. LanguageTool is meant to parse and analyze natural la
 
 So what are the goals here? Glad you asked:
 
-  * Create a simple, lightweight parser in JavaScript.
-  * Be portable across editors that leverage JavaScript in their plugins.
-  * Map various formatting languages to the simple Annotated Text format described in LanguageTool's API.
-  * Use this readme as a test document.
+* Create a simple, lightweight parser in JavaScript.
+* Be portable across editors that leverage JavaScript in their plugins.
+* Map various formatting languages to the simple Annotated Text format described in LanguageTool's API.
+* Use this readme as a test document.
 
 Oh, and because we shouldn't assume the text ends with text, here's a link to one of my favorite quotes by Socrates:
 ["I am the wisest man alive, for I know one thing, and that is that I know nothing."](https://www.brainyquote.com/quotes/socrates_125872)
