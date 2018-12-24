@@ -59,7 +59,7 @@ function build(text, parse) {
   return compose(text, textnodes);
 }
 
-function html(text, rehypeoptions = {emitParseErrors: false, duplicateAttribute: false}) {
+function html(text, rehypeoptions = { emitParseErrors: false, duplicateAttribute: false }) {
   const processor = unified()
     .use(hype, rehypeoptions);
   return build(text, processor.parse);
