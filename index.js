@@ -1,9 +1,5 @@
 "use strict";
 
-var unified = require("unified");
-var mark = require("remark-parse");
-var hype = require("rehype-parse");
-
 function collect(astnodes, textnodes = []) {
   if (Array.isArray(astnodes)) {
     for (let astnode of astnodes) {
@@ -59,20 +55,8 @@ function build(text, parse) {
   return compose(text, textnodes);
 }
 
-function html(text, rehypeoptions = { emitParseErrors: false, duplicateAttribute: false }) {
-  const processor = unified()
-    .use(hype, rehypeoptions);
-  return build(text, processor.parse);
-}
-
-function md(text, remarkoptions = { commonmark: true }) {
-  const processor = unified()
-    .use(mark, remarkoptions);
-  return build(text, processor.parse);
-}
-
 module.exports = {
-  build,
-  html,
-  md
+  collect,
+  compose,
+  build
 };
