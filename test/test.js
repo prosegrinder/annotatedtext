@@ -3,7 +3,6 @@
 var expect = require("chai").expect;
 var unified = require("unified");
 var remarkparse = require("remark-parse");
-var markdownit = require("markdown-it");
 var builder = require("../index");
 var fs = require("fs");
 
