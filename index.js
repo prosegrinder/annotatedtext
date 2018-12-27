@@ -1,22 +1,29 @@
 "use strict";
 
-function collect(astnodes, getoffsetstart, getoffsetend, getchildren, textnodes = []) {
-  if (Array.isArray(astnodes)) {
-    for (let astnode of astnodes) {
-      const astchildren = getchildren(astnode);
-      if (astnode.type === "text") {
+const offsetstart = function (node) { return node.position.start.offset; };
+const offsetend = function (node) { return node.position.end.offset; };
+const children = function (node) { return node.children; };
+const textnode = function (node) { return node.type === "text"; };
+const textnodevalue = function (node) { return node.value; };
+
+function collect(nodes, istextnode = textnode, gettext = textnodevalue,
+    getoffsetstart = offsetstart, getoffsetend = offsetend, getchildren = children, textnodes = []) {
+  if (Array.isArray(nodes)) {
+    for (let node of nodes) {
+      const children = getchildren(node);
+      if (istextnode(node)) {
         textnodes.push({
-          "text": astnode.value, "offset":
-            { "start": getoffsetstart(astnode), "end": getoffsetend(astnode) }
+          "text": gettext(node), "offset":
+            { "start": getoffsetstart(node), "end": getoffsetend(node) }
         });
       }
-      if (astchildren) {
-        textnodes = collect(astchildren, getoffsetstart, getoffsetend, getchildren, textnodes);
+      if (children) {
+        textnodes = collect(children, istextnode, gettext, getoffsetstart, getoffsetend, getchildren, textnodes);
       }
     }
     return textnodes;
   } else {
-    return collect([astnodes], getoffsetstart, getoffsetend, getchildren, textnodes);
+    return collect([nodes], istextnode, gettext, getoffsetstart, getoffsetend, getchildren, textnodes);
   }
 }
 
@@ -49,9 +56,10 @@ function compose(text, textnodes) {
   return { "annotation": annotatednodes };
 }
 
-function build(text, parse, getoffsetstart, getoffsetend, getchildren) {
-  const astnodes = parse(text);
-  const textnodes = collect(astnodes, getoffsetstart, getoffsetend, getchildren);
+function build(text, parse, istextnode = textnode, gettext = textnodevalue,
+    getoffsetstart = offsetstart, getoffsetend = offsetend, getchildren = children) {
+  const nodes = parse(text);
+  const textnodes = collect(nodes, istextnode, gettext, getoffsetstart, getoffsetend, getchildren);
   return compose(text, textnodes);
 }
 
