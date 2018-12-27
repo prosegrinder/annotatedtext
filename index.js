@@ -1,22 +1,22 @@
 "use strict";
 
-function collect(astnodes, textnodes = []) {
+function collect(astnodes, getoffsetstart, getoffsetend, getchildren, textnodes = []) {
   if (Array.isArray(astnodes)) {
     for (let astnode of astnodes) {
-      const astchildren = astnode.children;
+      const astchildren = getchildren(astnode);
       if (astnode.type === "text") {
         textnodes.push({
           "text": astnode.value, "offset":
-            { "start": astnode.position.start.offset, "end": astnode.position.end.offset }
+            { "start": getoffsetstart(astnode), "end": getoffsetend(astnode) }
         });
       }
       if (astchildren) {
-        textnodes = collect(astchildren, textnodes);
+        textnodes = collect(astchildren, getoffsetstart, getoffsetend, getchildren, textnodes);
       }
     }
     return textnodes;
   } else {
-    return collect([astnodes], textnodes);
+    return collect([astnodes], getoffsetstart, getoffsetend, getchildren, textnodes);
   }
 }
 
@@ -49,9 +49,9 @@ function compose(text, textnodes) {
   return { "annotation": annotatednodes };
 }
 
-function build(text, parse) {
+function build(text, parse, getoffsetstart, getoffsetend, getchildren) {
   const astnodes = parse(text);
-  const textnodes = collect(astnodes);
+  const textnodes = collect(astnodes, getoffsetstart, getoffsetend, getchildren);
   return compose(text, textnodes);
 }
 
