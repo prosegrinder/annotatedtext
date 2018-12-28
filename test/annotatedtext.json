@@ -2,6 +2,7 @@
   "annotation": [
     {
       "markup": "# ",
+      "interpretAs": "",
       "offset": {
         "start": 0,
         "end": 2
@@ -16,6 +17,7 @@
     },
     {
       "markup": "\n\n",
+      "interpretAs": "\n\n",
       "offset": {
         "start": 6,
         "end": 8
@@ -30,6 +32,7 @@
     },
     {
       "markup": "\n\n",
+      "interpretAs": "\n\n",
       "offset": {
         "start": 183,
         "end": 185
@@ -44,6 +47,7 @@
     },
     {
       "markup": "\n\n## ",
+      "interpretAs": "\n\n",
       "offset": {
         "start": 283,
         "end": 288
@@ -58,6 +62,7 @@
     },
     {
       "markup": "\n\n[",
+      "interpretAs": "\n\n",
       "offset": {
         "start": 295,
         "end": 298
@@ -72,6 +77,7 @@
     },
     {
       "markup": "](https://languagetool.org)",
+      "interpretAs": "",
       "offset": {
         "start": 310,
         "end": 337
@@ -86,6 +92,7 @@
     },
     {
       "markup": "**",
+      "interpretAs": "",
       "offset": {
         "start": 344,
         "end": 346
@@ -100,6 +107,7 @@
     },
     {
       "markup": "**",
+      "interpretAs": "",
       "offset": {
         "start": 355,
         "end": 357
@@ -114,6 +122,7 @@
     },
     {
       "markup": "[",
+      "interpretAs": "",
       "offset": {
         "start": 562,
         "end": 563
@@ -128,6 +137,7 @@
     },
     {
       "markup": "](https://forum.languagetool.org/t/rules-for-markdown/374/2)",
+      "interpretAs": "",
       "offset": {
         "start": 687,
         "end": 747
@@ -142,6 +152,7 @@
     },
     {
       "markup": "\n\n",
+      "interpretAs": "\n\n",
       "offset": {
         "start": 761,
         "end": 763
@@ -156,6 +167,7 @@
     },
     {
       "markup": "\n\n## ",
+      "interpretAs": "\n\n",
       "offset": {
         "start": 875,
         "end": 880
@@ -170,6 +182,7 @@
     },
     {
       "markup": "\n\n",
+      "interpretAs": "\n\n",
       "offset": {
         "start": 885,
         "end": 887
@@ -184,6 +197,7 @@
     },
     {
       "markup": "\n\n* ",
+      "interpretAs": "\n\n",
       "offset": {
         "start": 930,
         "end": 934
@@ -198,6 +212,7 @@
     },
     {
       "markup": "\n* ",
+      "interpretAs": "\n",
       "offset": {
         "start": 984,
         "end": 987
@@ -212,6 +227,7 @@
     },
     {
       "markup": "\n* ",
+      "interpretAs": "\n",
       "offset": {
         "start": 1056,
         "end": 1059
@@ -226,6 +242,7 @@
     },
     {
       "markup": "\n* ",
+      "interpretAs": "\n",
       "offset": {
         "start": 1160,
         "end": 1163
@@ -240,6 +257,7 @@
     },
     {
       "markup": "\n\n",
+      "interpretAs": "\n\n",
       "offset": {
         "start": 1198,
         "end": 1200
@@ -254,6 +272,7 @@
     },
     {
       "markup": "[",
+      "interpretAs": "",
       "offset": {
         "start": 1317,
         "end": 1318
@@ -268,6 +287,7 @@
     },
     {
       "markup": "](https://www.brainyquote.com/quotes/socrates_125872)\n",
+      "interpretAs": "\n",
       "offset": {
         "start": 1401,
         "end": 1455

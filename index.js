@@ -16,6 +16,10 @@ const defaults = {
     } else {
       return null;
     }
+  },
+  "interpreter": function (text = "") {
+    let count = (text.match(/\n/g) || []).length;
+    return "\n".repeat(count);
   }
 };
 
@@ -37,38 +41,36 @@ function collecttext(ast, annotatetextnode = defaults.annotatetextnode, getchild
   return textannotations;
 }
 
-function compose(text, annotatedtextnodes) {
+function compose(text, annotatedtextnodes, interpreter = defaults.interpreter) {
   let annotations = [];
   let prior = null;
   for (let current of annotatedtextnodes) {
-    if (prior !== null) {
-      annotations.push({
-        "markup": text.substring(prior.offset.end, current.offset.start),
-        "offset": { "start": prior.offset.end, "end": current.offset.start }
-      });
-    } else {
-      if (current.offset.start > 0) {
-        annotations.push({
-          "markup": text.substring(0, current.offset.start),
-          "offset": { "start": 0, "end": current.offset.start }
-        });
-      }
-    }
+    let priorend = (prior !== null) ? prior.offset.end : 0;
+    let markuptext = text.substring(priorend, current.offset.start);
+    let interpreted = interpreter(markuptext);
+    annotations.push({
+      "markup": markuptext,
+      "interpretAs": interpreted,
+      "offset": { "start": priorend, "end": current.offset.start }
+    });
     annotations.push(current);
     prior = current;
   }
   // Always add a final markup node.
+  let markuptext = text.substring(prior.offset.end, text.length);
+  let interpreted = interpreter(markuptext);
   annotations.push({
-    "markup": text.substring(prior.offset.end, text.length),
+    "markup": markuptext,
+    "interpretAs": interpreted,
     "offset": { "start": prior.offset.end, "end": text.length }
   });
   return { "annotation": annotations };
 }
 
-function build(text, parse, annotatetextnode = defaults.annotatetextnode, getchildren = defaults.children) {
+function build(text, parse, wsinterpreter = defaults.interpreter, annotatetextnode = defaults.annotatetextnode, getchildren = defaults.children) {
   const nodes = parse(text);
   const textnodes = collecttext(nodes, annotatetextnode, getchildren);
-  return compose(text, textnodes);
+  return compose(text, textnodes, wsinterpreter);
 }
 
 module.exports = {
