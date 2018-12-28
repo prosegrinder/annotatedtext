@@ -1,70 +1,78 @@
 "use strict";
 
-const offsetstart = function (node) { return node.position.start.offset; };
-const offsetend = function (node) { return node.position.end.offset; };
-const children = function (node) { return node.children; };
-const textnode = function (node) { return node.type === "text"; };
-const textnodevalue = function (node) { return node.value; };
-
-function collect(nodes, istextnode = textnode, gettext = textnodevalue,
-    getoffsetstart = offsetstart, getoffsetend = offsetend, getchildren = children, textnodes = []) {
-  if (Array.isArray(nodes)) {
-    for (let node of nodes) {
-      const children = getchildren(node);
-      if (istextnode(node)) {
-        textnodes.push({
-          "text": gettext(node), "offset":
-            { "start": getoffsetstart(node), "end": getoffsetend(node) }
-        });
+const defaults = {
+  "children": function (node) {
+    return node.children;
+  },
+  "annotatetextnode": function (node) {
+    if (node.type === "text") {
+      return {
+        "text": node.value,
+        "offset": {
+          "start": node.position.start.offset,
+          "end": node.position.end.offset
+        }
       }
-      if (children) {
-        textnodes = collect(children, istextnode, gettext, getoffsetstart, getoffsetend, getchildren, textnodes);
-      }
+    } else {
+      return null;
     }
-    return textnodes;
-  } else {
-    return collect([nodes], istextnode, gettext, getoffsetstart, getoffsetend, getchildren, textnodes);
   }
+};
+
+function collecttext(ast, annotatetextnode = defaults.annotatetextnode, getchildren = defaults.children) {
+  var textannotations = [];
+
+  function recurse(node) {
+    const annotation = annotatetextnode(node);
+    if (annotation !== null) {
+      textannotations.push(annotation);
+    }
+    const children = getchildren(node);
+    if (children !== null && Array.isArray(children)) {
+      children.forEach(recurse);
+    }
+  }
+
+  recurse(ast);
+  return textannotations;
 }
 
-function compose(text, textnodes) {
-  var annotatednodes = [];
-  var prior = null;
-  for (let current of textnodes) {
-    if (prior != null) {
-      annotatednodes.push({
+function compose(text, annotatedtextnodes) {
+  let annotations = [];
+  let prior = null;
+  for (let current of annotatedtextnodes) {
+    if (prior !== null) {
+      annotations.push({
         "markup": text.substring(prior.offset.end, current.offset.start),
         "offset": { "start": prior.offset.end, "end": current.offset.start }
       });
     } else {
       if (current.offset.start > 0) {
-        annotatednodes.push({
+        annotations.push({
           "markup": text.substring(0, current.offset.start),
           "offset": { "start": 0, "end": current.offset.start }
         });
       }
     }
-    annotatednodes.push(current);
+    annotations.push(current);
     prior = current;
   }
-  if (text.length > prior.offset.end) {
-    annotatednodes.push({
-      "markup": text.substring(prior.offset.end, text.length),
-      "offset": { "start": prior.offset.end, "end": text.length }
-    });
-  }
-  return { "annotation": annotatednodes };
+  // Always add a final markup node.
+  annotations.push({
+    "markup": text.substring(prior.offset.end, text.length),
+    "offset": { "start": prior.offset.end, "end": text.length }
+  });
+  return { "annotation": annotations };
 }
 
-function build(text, parse, istextnode = textnode, gettext = textnodevalue,
-    getoffsetstart = offsetstart, getoffsetend = offsetend, getchildren = children) {
+function build(text, parse, annotatetextnode = defaults.annotatetextnode, getchildren = defaults.children) {
   const nodes = parse(text);
-  const textnodes = collect(nodes, istextnode, gettext, getoffsetstart, getoffsetend, getchildren);
+  const textnodes = collecttext(nodes, annotatetextnode, getchildren);
   return compose(text, textnodes);
 }
 
 module.exports = {
-  collect,
+  collecttext,
   compose,
   build
 };
