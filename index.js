@@ -23,7 +23,7 @@ const defaults = {
   }
 };
 
-function collecttext(ast, annotatetextnode = defaults.annotatetextnode, getchildren = defaults.children) {
+function collecttextnodes(ast, annotatetextnode = defaults.annotatetextnode, getchildren = defaults.children) {
   var textannotations = [];
 
   function recurse(node) {
@@ -41,7 +41,7 @@ function collecttext(ast, annotatetextnode = defaults.annotatetextnode, getchild
   return textannotations;
 }
 
-function compose(text, annotatedtextnodes, interpreter = defaults.interpreter) {
+function composeannotation(text, annotatedtextnodes, interpreter = defaults.interpreter) {
   let annotations = [];
   let prior = null;
   for (let current of annotatedtextnodes) {
@@ -69,12 +69,12 @@ function compose(text, annotatedtextnodes, interpreter = defaults.interpreter) {
 
 function build(text, parse, wsinterpreter = defaults.interpreter, annotatetextnode = defaults.annotatetextnode, getchildren = defaults.children) {
   const nodes = parse(text);
-  const textnodes = collecttext(nodes, annotatetextnode, getchildren);
-  return compose(text, textnodes, wsinterpreter);
+  const textnodes = collecttextnodes(nodes, annotatetextnode, getchildren);
+  return composeannotation(text, textnodes, wsinterpreter);
 }
 
 module.exports = {
-  collecttext,
-  compose,
+  collecttextnodes,
+  composeannotation,
   build
 };

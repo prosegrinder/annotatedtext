@@ -6,24 +6,24 @@ var remarkparse = require("remark-parse");
 var builder = require("../index");
 var fs = require("fs");
 
-describe("#collecttext()", function () {
+describe("#collecttextnodes()", function () {
 
   it("should return the expected array of text nodes", function () {
     const ast = JSON.parse(fs.readFileSync("./test/ast.json", "utf8"));
     const expected = JSON.parse(fs.readFileSync("./test/textnodes.json", "utf8"));
-    const result = builder.collecttext(ast);
+    const result = builder.collecttextnodes(ast);
     expect(result).to.deep.equal(expected);
   });
 
 });
 
-describe("#compose()", function () {
+describe("#composeannotation()", function () {
 
   it("should return the expected annotated text object", function () {
     const expected = JSON.parse(fs.readFileSync("./test/annotatedtext.json", "utf8"));
     const text = fs.readFileSync("./test/test.md", "utf8");
     const textnodes = JSON.parse(fs.readFileSync("./test/textnodes.json", "utf8"));
-    const result = builder.compose(text, textnodes);
+    const result = builder.composeannotation(text, textnodes);
     expect(result).to.deep.equal(expected);
   });
 
