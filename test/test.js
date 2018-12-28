@@ -6,12 +6,12 @@ var remarkparse = require("remark-parse");
 var builder = require("../index");
 var fs = require("fs");
 
-describe("#collect()", function () {
+describe("#collecttext()", function () {
 
   it("should return the expected array of text nodes", function () {
     const ast = JSON.parse(fs.readFileSync("./test/ast.json", "utf8"));
     const expected = JSON.parse(fs.readFileSync("./test/textnodes.json", "utf8"));
-    const result = builder.collect(ast);
+    const result = builder.collecttext(ast);
     expect(result).to.deep.equal(expected);
   });
 
