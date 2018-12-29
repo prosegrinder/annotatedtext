@@ -8,31 +8,11 @@ consumable by LanguageTool as [AnnotatedText](https://languagetool.org/developme
 
 ## Usage
 
-To generate annotated text from markdown, leveraging [remark-parse](https://github.com/remarkjs/remark/tree/master/packages/remark-parse):
-
-```js
-"use strict";
-var builder = require("annotatedtext");
-var markdown = "# Some Markdown, possibly read from a file.";
-var annotatedtext = builder.md(markdown);
-JSON.stringify(annotatedtext);
-```
-
-To generate annotated text from html, leveraging [rehyp-parse](https://github.com/rehypejs/rehype/tree/master/packages/rehype-parse):
-
-```js
-"use strict";
-var builder = require("annotatedtext");
-var hypertext = "<p>Some HTML, possibly read from a file.</p>";
-var annotatedtext = builder.html(hypertext);
-JSON.stringify(annotatedtext);
-```
-
-Extend for other formats using the [API](#API). See below for details.
+See [API](#API) below for details.
 
 ## Motivation
 
-Provide an easier way of running LanguageTool on markup documents by separating the text from the markup.
+Provide an easier way of running LanguageTool on documents by separating the text from the markup.
 
 ## Installation
 
@@ -44,7 +24,103 @@ npm install annotatedtext
 
 ## API
 
-### `build(text, parse)`
+### `defaults`
+
+`annotatedtext` comes with the following default functions used throughout.
+
+```js
+const defaults = {
+  "children": function (node) {
+    return node.children;
+  },
+  "annotatetextnode": function (node) {
+    if (node.type === "text") {
+      return {
+        "text": node.value,
+        "offset": {
+          "start": node.position.start.offset,
+          "end": node.position.end.offset
+        }
+      }
+    } else {
+      return null;
+    }
+  },
+  "interpretmarkup": function (text = "") {
+    return "";
+  }
+};
+```
+
+Functions can be overriden by making a copy and assigning a new function. For
+example, the tests use markdown and need to interpret new lines in the markup
+as new lines. The interpretmarkup function is overriden as:
+
+```js
+var options = builder.defaults;
+options.interpretmarkup = function (text) {
+  let count = (text.match(/\n/g) || []).length;
+  return "\n".repeat(count);
+}
+```
+
+#### `children(node)`
+
+Expected to return an array of child nodes.
+
+#### `annotatetextnode(node)`
+
+Expected to return a struture for a text ast node with at least the following:
+
+```json
+{
+  "text": "A snippet of the natural language text from the document.",
+  "offset": {
+    "start": 1,
+    "end": 57
+  }
+}
+```
+
+* `text` is the natural language text from the node, devoid of all markup.
+* `offset` contains offsets used to extract markup text from the original document.
+  * `start` is the offset start of the text
+  * `end` is the offset end of the text
+
+If the node is not a text node, it must return `null`;
+
+#### `interpretmarkup(node)`
+
+Used to make sure LanguageTool knows when markup represents some form of whitespace. As
+mentioned above, the tests override this function to ensure new lines captured as markup
+are also visible to LanguageTool.
+
+```js
+var options = builder.defaults;
+options.interpretmarkup = function (text) {
+  let count = (text.match(/\n/g) || []).length;
+  return "\n".repeat(count);
+}
+```
+
+### `build(text, parse, options)`
+
+Returns Annotated Text as described by LanguageTool's API:
+
+```json
+{"annotation":[
+ {"text": "A "},
+ {"markup": "<b>"},
+ {"text": "test"},
+ {"markup": "</b>"}
+]}
+```
+
+Run the object through `JSON.stringfy()` to get a string suitable
+for passing to LanguageTool's `data` parameter.
+
+This is the main function you'll use in implementing for different
+parsers.
 
 ```js
 "use strict";
@@ -57,15 +133,41 @@ JSON.stringify(annotatedtext);
 
 #### `text`
 
-The complete document.
+The text from the markup document in its original form.
 
 #### `parse`
 
 A function that parses a markup document and returns an abstract syntax tree.
-Bonus points for adhering to the [unist](https://github.com/syntax-tree/unist)
-specification. Nodes must have attributes for `type` having 'text' for text nodes,
-`value` having the original text of the node, and `offset.start` and `offset.end`
-having start and end offsets in the original document.
+
+#### `options`
+
+See [`defaults`](#defaults) above.
+
+### `collecttextnodes(ast, options = defaults)`
+
+Returns an array of [annotated text nodes](#annotatetextnode(node)) used in
+the final annotated text object.
+
+#### `ast`
+
+An abstract syntax tree.
+
+#### `options`
+
+See [`defaults`](#defaults) above.
+
+### `composeannotation(text, annotatedtextnodes, options = defaults)`
+
+#### `text`
+
+#### `annotatedtextnodes`
+
+An array of an array of [annotated text nodes](#annotatetextnode(node)) such
+as is produced by [`collecttextnodes`](#collecttextnodes(ast,_options_=_defaults)).
+
+#### `options`
+
+See [`defaults`](#defaults) above.
 
 ## Tests
 
@@ -74,6 +176,13 @@ Unit tests are also run via npm:
 ```sh
 npm test
 ```
+
+## Implemented Parsers
+
+The following packages wrap `annotatedtext` for specific parsers:
+
+* COMING SOON: `annotatedtext-remark` for markdown using [remark-parse](https://github.com/remarkjs/remark/tree/master/packages/remark-parse).
+* COMING SOON: `annotatedtext-rehype` for html using [rehype-parse](https://github.com/rehypejs/rehype/tree/master/packages/rehype-parse).
 
 ## License
 
