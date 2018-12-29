@@ -10,7 +10,7 @@ var options = builder.defaults;
 options.interpretmarkup = function (text) {
   let count = (text.match(/\n/g) || []).length;
   return "\n".repeat(count);
-}
+};
 
 describe("#collecttextnodes()", function () {
 
