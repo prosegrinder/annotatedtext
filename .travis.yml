@@ -1,3 +1,4 @@
+dist: xenial
 language: node_js
 node_js:
 - lts/*
@@ -6,6 +7,9 @@ sudo: false
 deploy:
   provider: npm
   email: david@davidlday.com
-  skip_cleanup: true
+  api_key:
+    secure: Oy/kbzlQoeq1+OyxxWmKxtcBFdX0solotmzGSfBBRG7a65GwY2cSa5OVS5xqa5Wep489Vl/SIwFR14GfC5Z/H1WZUhZaUvC5qlTFzP/3DttubKM9aEXN7RStmSITjaCEiuXELtBnBpV4+Awm8UkEMGBUoUHyjXDHkSyq2hgKJwV07N81qEql3EZHFE8QY7vRRkP1wvbEXue9dC2qPECiRBlE/5iiwhTSDYb6WmI77XrxjsO+/VrVVIqdfG27i+32u1DfXmmzCxpyXVlFBqasdnG0MhzH3+BFua+tuqjmqpJy9lUaJU8JQqYWdLF/22PEI8OkqkhcKPBuunmSzUlfzIvVb8KtVFX8Tc/keQA9h8o5VU8aEjBzlvxl4B7XH0nqK+eLitQnc/OkCfcCDsTDZniriGQquFaOR1fCR9JJ3zK9Tl1QBFhbjN3qG5FpBPyB1f4BwNLDn+TH+YqSX/Q0FKdH7optVXAGtUUTZ/sONQ7dwBwpfxpDY31q53FFDRfs5zL+7+D4BRmHCEmq8/npsE8A6yAUMqS1Wb0o2OYLjLhbPWTKbm3pGAPnBVteRSX5d93hqqCJBHlzGuwUuRJjkG+6mbifB+wS9WP1tzpgiJq65uBsz5ysU1bIRGvj1wwL1kYbOON/Jv4oKDFjoYEZkSwqK0itQlCAC2gmn3OeGSA=
   on:
     tags: true
+    repo: prosegrinder/annotatedtext
+    branch: master
