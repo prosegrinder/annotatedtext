@@ -54,7 +54,7 @@ JSON.stringify(annotatedtext);
 
 * `text`: The text from the markup document in its original form.
 * `parse`: A function that parses a markup document and returns an abstract syntax tree.
-* _`options`_: (optional) See [`defaults`](#defaults) above.
+* _`options`_: (optional) See [`defaults`](#defaults).
 
 ### `collecttextnodes(ast, options = defaults)`
 
@@ -62,14 +62,14 @@ Returns an array of [annotated text nodes](#annotatetextnode(node)) used in
 the final annotated text object.
 
 * `ast`: An abstract syntax tree.
-* _`options`_: (optional) See [`defaults`](#defaults) above.
+* _`options`_: (optional) See [`defaults`](#defaults).
 
 ### `composeannotation(text, annotatedtextnodes, options = defaults)`
 
 * `text`: The text from the markup document in its original form.
 * `annotatedtextnodes`:  An array of an array of [annotated text nodes](#annotatetextnode(node))
   such as produced by [`collecttextnodes`](#collecttextnodes(ast,_options_=_defaults)).
-* _`options`_: (optional) See [`defaults`](#defaults) above.
+* _`options`_: (optional) See [`defaults`](#defaults).
 
 ### `defaults`
 
