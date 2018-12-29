@@ -1,10 +1,10 @@
 "use strict";
 
 const defaults = {
-  "children": function (node) {
+  children(node) {
     return node.children;
   },
-  "annotatetextnode": function (node) {
+  annotatetextnode(node) {
     if (node.type === "text") {
       return {
         "text": node.value,
@@ -12,12 +12,12 @@ const defaults = {
           "start": node.position.start.offset,
           "end": node.position.end.offset
         }
-      }
+      };
     } else {
       return null;
     }
   },
-  "interpretmarkup": function (text = "") {
+  interpretmarkup(text = "") {
     return "";
   }
 };
