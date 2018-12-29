@@ -24,6 +24,53 @@ npm install annotatedtext
 
 ## API
 
+### `build(text, parse, options = defaults)`
+
+Returns Annotated Text as described by LanguageTool's API:
+
+```json
+{"annotation":[
+ {"text": "A "},
+ {"markup": "<b>"},
+ {"text": "test"},
+ {"markup": "</b>"}
+]}
+```
+
+Run the object through `JSON.stringfy()` to get a string suitable
+for passing to LanguageTool's `data` parameter.
+
+This is the main function you'll use in implementing for different
+parsers.
+
+```js
+"use strict";
+var builder = require("annotatedtext");
+const processor = unified()
+  .use(mark, { commonmark: true });
+var annotatedtext = builder.build(text, processor.parse);
+JSON.stringify(annotatedtext);
+```
+
+* `text`: The text from the markup document in its original form.
+* `parse`: A function that parses a markup document and returns an abstract syntax tree.
+* _`options`_: (optional) See [`defaults`](#defaults) above.
+
+### `collecttextnodes(ast, options = defaults)`
+
+Returns an array of [annotated text nodes](#annotatetextnode(node)) used in
+the final annotated text object.
+
+* `ast`: An abstract syntax tree.
+* _`options`_: (optional) See [`defaults`](#defaults) above.
+
+### `composeannotation(text, annotatedtextnodes, options = defaults)`
+
+* `text`: The text from the markup document in its original form.
+* `annotatedtextnodes`:  An array of an array of [annotated text nodes](#annotatetextnode(node))
+  such as produced by [`collecttextnodes`](#collecttextnodes(ast,_options_=_defaults)).
+* _`options`_: (optional) See [`defaults`](#defaults) above.
+
 ### `defaults`
 
 `annotatedtext` comes with the following default functions used throughout.
@@ -72,6 +119,11 @@ Expected to return an array of child nodes.
 
 Expected to return a struture for a text ast node with at least the following:
 
+* `text` is the natural language text from the node, devoid of all markup.
+* `offset` contains offsets used to extract markup text from the original document.
+  * `start` is the offset start of the text
+  * `end` is the offset end of the text
+
 ```json
 {
   "text": "A snippet of the natural language text from the document.",
@@ -81,11 +133,6 @@ Expected to return a struture for a text ast node with at least the following:
   }
 }
 ```
-
-* `text` is the natural language text from the node, devoid of all markup.
-* `offset` contains offsets used to extract markup text from the original document.
-  * `start` is the offset start of the text
-  * `end` is the offset end of the text
 
 If the node is not a text node, it must return `null`;
 
@@ -102,72 +149,6 @@ options.interpretmarkup = function (text) {
   return "\n".repeat(count);
 }
 ```
-
-### `build(text, parse, options)`
-
-Returns Annotated Text as described by LanguageTool's API:
-
-```json
-{"annotation":[
- {"text": "A "},
- {"markup": "<b>"},
- {"text": "test"},
- {"markup": "</b>"}
-]}
-```
-
-Run the object through `JSON.stringfy()` to get a string suitable
-for passing to LanguageTool's `data` parameter.
-
-This is the main function you'll use in implementing for different
-parsers.
-
-```js
-"use strict";
-var builder = require("annotatedtext");
-const processor = unified()
-  .use(mark, { commonmark: true });
-var annotatedtext = builder.build(text, processor.parse);
-JSON.stringify(annotatedtext);
-```
-
-#### `text`
-
-The text from the markup document in its original form.
-
-#### `parse`
-
-A function that parses a markup document and returns an abstract syntax tree.
-
-#### `options`
-
-See [`defaults`](#defaults) above.
-
-### `collecttextnodes(ast, options = defaults)`
-
-Returns an array of [annotated text nodes](#annotatetextnode(node)) used in
-the final annotated text object.
-
-#### `ast`
-
-An abstract syntax tree.
-
-#### `options`
-
-See [`defaults`](#defaults) above.
-
-### `composeannotation(text, annotatedtextnodes, options = defaults)`
-
-#### `text`
-
-#### `annotatedtextnodes`
-
-An array of an array of [annotated text nodes](#annotatetextnode(node)) such
-as is produced by [`collecttextnodes`](#collecttextnodes(ast,_options_=_defaults)).
-
-#### `options`
-
-See [`defaults`](#defaults) above.
 
 ## Tests
 
