@@ -162,7 +162,7 @@ npm test
 
 The following packages wrap `annotatedtext` for specific parsers:
 
-* [`annotatedtext-remark`](https://github.com/prosegrinder/annotatedtext-rehype) for markdown using [remark-parse](https://github.com/remarkjs/remark/tree/master/packages/remark-parse).
+* [`annotatedtext-remark`](https://github.com/prosegrinder/annotatedtext-remark) for markdown using [remark-parse](https://github.com/remarkjs/remark/tree/master/packages/remark-parse).
 * [`annotatedtext-rehype`](https://github.com/prosegrinder/annotatedtext-rehype) for html using [rehype-parse](https://github.com/rehypejs/rehype/tree/master/packages/rehype-parse).
 
 ## License
