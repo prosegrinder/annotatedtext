@@ -26,7 +26,7 @@
   "devDependencies": {
     "chai": "^4.2.0",
     "mocha": "^5.2.0",
-    "remark-parse": "^6.0.3",
+    "remark-parse": "^7.0.1",
     "unified": "^7.1.0"
   }
 }
