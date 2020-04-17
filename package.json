@@ -27,6 +27,6 @@
     "chai": "^4.2.0",
     "mocha": "^7.1.0",
     "remark-parse": "^7.0.1",
-    "unified": "^8.4.1"
+    "unified": "^9.0.0"
   }
 }
