@@ -1,6 +1,6 @@
 # annotatedtext
 
-[![Build Status](https://travis-ci.org/prosegrinder/annotatedtext.svg?branch=master)](https://travis-ci.org/prosegrinder/annotatedtext)
+[![Node.js CI](https://github.com/prosegrinder/annotatedtext/workflows/Node.js%20CI/badge.svg?branch=master)](https://github.com/prosegrinder/annotatedtext/actions?query=workflow%3A%22Node.js+CI%22+branch%3Amaster)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/6358e514e62e477d98469e070535eb24)](https://www.codacy.com/app/ProseGrinder/annotatedtext?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=prosegrinder/annotatedtext&amp;utm_campaign=Badge_Grade)
 
 A lightweight JavaScript library for converting markup documents into an annotated text format
