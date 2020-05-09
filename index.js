@@ -4,10 +4,10 @@ const defaults = {
   children(node) {
     return node.children;
   },
-  annotatetextnode(node) {
+  annotatetextnode(node, text) {
     if (node.type === "text") {
       return {
-        "text": node.value,
+        "text": text.substring(node.position.start.offset, node.position.end.offset),
         "offset": {
           "start": node.position.start.offset,
           "end": node.position.end.offset
@@ -22,11 +22,11 @@ const defaults = {
   }
 };
 
-function collecttextnodes(ast, options = defaults) {
+function collecttextnodes(ast, text, options = defaults) {
   var textannotations = [];
 
   function recurse(node) {
-    const annotation = options.annotatetextnode(node);
+    const annotation = options.annotatetextnode(node, text);
     if (annotation !== null) {
       textannotations.push(annotation);
     }
@@ -68,7 +68,7 @@ function composeannotation(text, annotatedtextnodes, options = defaults) {
 
 function build(text, parse, options = defaults) {
   const nodes = parse(text);
-  const textnodes = collecttextnodes(nodes, options);
+  const textnodes = collecttextnodes(nodes, text, options);
   return composeannotation(text, textnodes, options);
 }
 
