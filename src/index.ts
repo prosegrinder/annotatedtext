@@ -1,10 +1,10 @@
-"use strict";
+import {INode, IOptions, IAnnotation} from "./index.d";
 
-const defaults = {
-  children(node) {
+const defaults: IOptions = {
+  children(node: INode) {
     return node.children;
   },
-  annotatetextnode(node, text) {
+  annotatetextnode(node: INode, text: string) {
     if (node.type === "text") {
       return {
         "text": text.substring(node.position.start.offset, node.position.end.offset),
@@ -17,15 +17,15 @@ const defaults = {
       return null;
     }
   },
-  interpretmarkup(text = "") {
+  interpretmarkup(tex: string = "") {
     return "";
   }
 };
 
-function collecttextnodes(ast, text, options = defaults) {
-  var textannotations = [];
+function collecttextnodes(ast: any, text: string, options: IOptions = defaults) {
+  var textannotations: IAnnotation[] = [];
 
-  function recurse(node) {
+  function recurse(node: INode) {
     const annotation = options.annotatetextnode(node, text);
     if (annotation !== null) {
       textannotations.push(annotation);
@@ -40,11 +40,12 @@ function collecttextnodes(ast, text, options = defaults) {
   return textannotations;
 }
 
-function composeannotation(text, annotatedtextnodes, options = defaults) {
-  let annotations = [];
-  let prior = null;
+function composeannotation(text: string, annotatedtextnodes: IAnnotation[], options: IOptions = defaults) {
+  let annotations: IAnnotation[] = [];
+  let prior: IAnnotation | null = null;
+  let priorend: number = 0;
   for (let current of annotatedtextnodes) {
-    let priorend = (prior !== null) ? prior.offset.end : 0;
+    priorend = (prior !== null) ? prior.offset.end : 0;
     let markuptext = text.substring(priorend, current.offset.start);
     let interpreted = options.interpretmarkup(markuptext);
     annotations.push({
@@ -56,19 +57,19 @@ function composeannotation(text, annotatedtextnodes, options = defaults) {
     prior = current;
   }
   // Always add a final markup node to esnure trailing whitespace is added.
-  let markuptext = text.substring(prior.offset.end, text.length);
+  let markuptext = text.substring(priorend, text.length);
   let interpreted = options.interpretmarkup(markuptext);
   annotations.push({
     "markup": markuptext,
     "interpretAs": interpreted,
-    "offset": { "start": prior.offset.end, "end": text.length }
+    "offset": { "start": priorend, "end": text.length }
   });
   return { "annotation": annotations };
 }
 
-function build(text, parse, options = defaults) {
-  const nodes = parse(text);
-  const textnodes = collecttextnodes(nodes, text, options);
+function build(text: string, parse: any, options: IOptions = defaults) {
+  const nodes: INode = parse(text);
+  const textnodes: IAnnotation[] = collecttextnodes(nodes, text, options);
   return composeannotation(text, textnodes, options);
 }
 
