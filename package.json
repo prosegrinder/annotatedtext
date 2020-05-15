@@ -11,8 +11,8 @@
   "scripts": {
     "test": "mocha --reporter spec ./src/test/test.js",
     "clean": "rm -rf out/*",
-    "compile": "tsc",
-    "recompile": "npm run clean && npm run compile",
+    "build": "tsc",
+    "rebuild": "npm run clean && npm run build",
     "lint": "tslint --project tsconfig.json"
   },
   "repository": {
