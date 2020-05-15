@@ -19,6 +19,7 @@ describe("#collecttextnodes()", function () {
     const ast = JSON.parse(fs.readFileSync("./src/test/ast.json", "utf8"));
     const expected = JSON.parse(fs.readFileSync("./src/test/textnodes.json", "utf8"));
     const result = builder.collecttextnodes(ast, text, options);
+    fs.writeFileSync("./out/test/textnodes.json", JSON.stringify(result), "utf8");
     expect(result).to.deep.equal(expected);
   });
 
@@ -50,7 +51,7 @@ describe("#build()", function () {
   it("should match the original document exactly", function () {
     const expected = fs.readFileSync("./src/test/test.md", "utf8");
     const processor = unified()
-      .use(remarkparse, { commonmark: true });
+      .use(remarkparse, { commonmark: false, gfm: true });
     const annotatedtext = builder.build(expected, processor.parse, options);
     const annotation = annotatedtext.annotation;
     let result = "";
