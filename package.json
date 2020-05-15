@@ -7,7 +7,7 @@
     "out/**/*"
   ],
   "scripts": {
-    "test": "mocha --reporter spec",
+    "test": "mocha --reporter spec ./src/test/test.js",
     "clean": "rm -rf out/*",
     "build": "tsc",
     "lint": "tslint -p tsconfig.json"
