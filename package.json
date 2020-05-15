@@ -2,15 +2,18 @@
   "name": "annotatedtext",
   "version": "0.2.0",
   "description": "A lightweight JavaScript library for converting various markup documents into an annotated text format consumable by LanguageTool.",
-  "main": "index.js",
+  "main": "out/index.js",
+  "types": "src/types/index.d.ts",
   "files": [
-    "out/**/*"
+    "out/**/*",
+    "src/types/index.d.ts"
   ],
   "scripts": {
     "test": "mocha --reporter spec ./src/test/test.js",
     "clean": "rm -rf out/*",
-    "build": "tsc",
-    "lint": "tslint -p tsconfig.json"
+    "compile": "tsc",
+    "recompile": "npm run clean && npm run compile",
+    "lint": "tslint --project tsconfig.json"
   },
   "repository": {
     "type": "git",
@@ -36,6 +39,7 @@
     "chai": "^4.2.0",
     "mocha": "^7.1.0",
     "remark-parse": "^8.0.0",
+    "tslint": "^6.1.2",
     "typescript": "^3.9.2",
     "unified": "^9.0.0"
   }
