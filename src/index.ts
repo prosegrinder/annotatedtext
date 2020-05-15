@@ -1,4 +1,4 @@
-import {INode, IOptions, IAnnotation} from "./index.d";
+import {INode, IOptions, IAnnotation} from "./types";
 
 const defaults: IOptions = {
   children(node: INode) {
@@ -23,7 +23,7 @@ const defaults: IOptions = {
 };
 
 function collecttextnodes(ast: any, text: string, options: IOptions = defaults) {
-  var textannotations: IAnnotation[] = [];
+  const textannotations: IAnnotation[] = [];
 
   function recurse(node: INode) {
     const annotation = options.annotatetextnode(node, text);
@@ -41,30 +41,28 @@ function collecttextnodes(ast: any, text: string, options: IOptions = defaults) 
 }
 
 function composeannotation(text: string, annotatedtextnodes: IAnnotation[], options: IOptions = defaults) {
-  let annotations: IAnnotation[] = [];
+  const annotations: IAnnotation[] = [];
   let prior: IAnnotation = {
     offset: {
       start: 0,
       end: 0
     }
   };
-  for (let current of annotatedtextnodes) {
-    let markuptext = text.substring(prior.offset.end, current.offset.start);
-    let interpreted = options.interpretmarkup(markuptext);
+  for (const current of annotatedtextnodes) {
+    const currenttext = text.substring(prior.offset.end, current.offset.start);
     annotations.push({
-      "markup": markuptext,
-      "interpretAs": interpreted,
+      "markup": currenttext,
+      "interpretAs": options.interpretmarkup(currenttext),
       "offset": { "start": prior.offset.end, "end": current.offset.start }
     });
     annotations.push(current);
     prior = current;
   }
   // Always add a final markup node to esnure trailing whitespace is added.
-  let markuptext = text.substring(prior.offset.end, text.length);
-  let interpreted = options.interpretmarkup(markuptext);
+  const finaltext = text.substring(prior.offset.end, text.length);
   annotations.push({
-    "markup": markuptext,
-    "interpretAs": interpreted,
+    "markup": finaltext,
+    "interpretAs": options.interpretmarkup(finaltext),
     "offset": { "start": prior.offset.end, "end": text.length }
   });
   return { "annotation": annotations };
