@@ -19,7 +19,7 @@ describe("#collecttextnodes()", function () {
     const ast = JSON.parse(fs.readFileSync("./src/test/ast.json", "utf8"));
     const expected = JSON.parse(fs.readFileSync("./src/test/textnodes.json", "utf8"));
     const result = builder.collecttextnodes(ast, text, options);
-    fs.writeFileSync("./out/test/textnodes.json", JSON.stringify(result), "utf8");
+    // fs.writeFileSync("./out/ts/textnodes.json", JSON.stringify(result), "utf8");
     expect(result).to.deep.equal(expected);
   });
 
@@ -32,6 +32,7 @@ describe("#composeannotation()", function () {
     const text = fs.readFileSync("./src/test/test.md", "utf8");
     const textnodes = JSON.parse(fs.readFileSync("./src/test/textnodes.json", "utf8"));
     const result = builder.composeannotation(text, textnodes, options);
+    // fs.writeFileSync("./out/ts/annotatedtext-compose.json", JSON.stringify(result), "utf8");
     expect(result).to.deep.equal(expected);
   });
 
@@ -45,6 +46,7 @@ describe("#build()", function () {
     const processor = unified()
       .use(remarkparse, { commonmark: true });
     const result = builder.build(text, processor.parse, options);
+    // fs.writeFileSync("./out/ts/annotatedtext-build.json", JSON.stringify(result), "utf8");
     expect(result).to.deep.equal(expected);
   });
 
@@ -59,6 +61,7 @@ describe("#build()", function () {
       const text = node.text ? node.text : node.markup;
       result += text;
     }
+    // fs.writeFileSync("./out/ts/test.md", result, "utf8");
     expect(result).to.equal(expected);
   });
 
@@ -68,6 +71,7 @@ describe("#build()", function () {
     const processor = unified()
       .use(remarkparse, { commonmark: true });
     const result = builder.build(text, processor.parse, options);
+    // fs.writeFileSync("./out/ts/escape-character.json", JSON.stringify(result), "utf8");
     expect(result).to.deep.equal(expected);
   });
 
@@ -82,6 +86,7 @@ describe("#build()", function () {
       const text = node.text ? node.text : node.markup;
       result += text;
     }
+    // fs.writeFileSync("./out/ts/escape-character.md", result, "utf8");
     expect(result).to.equal(expected);
   });
 
