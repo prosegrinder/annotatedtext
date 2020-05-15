@@ -42,27 +42,30 @@ function collecttextnodes(ast: any, text: string, options: IOptions = defaults) 
 
 function composeannotation(text: string, annotatedtextnodes: IAnnotation[], options: IOptions = defaults) {
   let annotations: IAnnotation[] = [];
-  let prior: IAnnotation | null = null;
-  let priorend: number = 0;
+  let prior: IAnnotation = {
+    offset: {
+      start: 0,
+      end: 0
+    }
+  };
   for (let current of annotatedtextnodes) {
-    priorend = (prior !== null) ? prior.offset.end : 0;
-    let markuptext = text.substring(priorend, current.offset.start);
+    let markuptext = text.substring(prior.offset.end, current.offset.start);
     let interpreted = options.interpretmarkup(markuptext);
     annotations.push({
       "markup": markuptext,
       "interpretAs": interpreted,
-      "offset": { "start": priorend, "end": current.offset.start }
+      "offset": { "start": prior.offset.end, "end": current.offset.start }
     });
     annotations.push(current);
     prior = current;
   }
   // Always add a final markup node to esnure trailing whitespace is added.
-  let markuptext = text.substring(priorend, text.length);
+  let markuptext = text.substring(prior.offset.end, text.length);
   let interpreted = options.interpretmarkup(markuptext);
   annotations.push({
     "markup": markuptext,
     "interpretAs": interpreted,
-    "offset": { "start": priorend, "end": text.length }
+    "offset": { "start": prior.offset.end, "end": text.length }
   });
   return { "annotation": annotations };
 }
