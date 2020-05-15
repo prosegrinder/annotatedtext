@@ -1,4 +1,4 @@
-import {INode, IOptions, IAnnotation} from "./types";
+import {INode, IOptions, IAnnotation} from "../types";
 
 const defaults: IOptions = {
   children(node: INode) {

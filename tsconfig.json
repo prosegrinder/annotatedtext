@@ -17,7 +17,7 @@
     "noFallthroughCasesInSwitch": true /* Report errors for fallthrough cases in switch statement. */
   },
   "include": [
-    "src/types/index.d.ts",
+    "types/index.d.ts",
     "src/index.ts"
   ]
 }
