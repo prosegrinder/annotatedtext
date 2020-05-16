@@ -80,7 +80,7 @@ function build(text: string, parse: any, options: IOptions = defaults) {
   return composeannotation(text, textnodes, options);
 }
 
-module.exports = {
+export {
   build,
   collecttextnodes,
   composeannotation,
