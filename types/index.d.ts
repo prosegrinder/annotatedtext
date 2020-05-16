@@ -1,4 +1,4 @@
-declare module annotatedtext {
+declare namespace annotatedtext {
   export interface IAnnotation {
     markup?: string;
     interpretAs?: string;
@@ -14,8 +14,8 @@ declare module annotatedtext {
   }
 
   export interface IOptions {
-    children(node: any): any;
-    annotatetextnode(node: any, text: string): IAnnotation | null;
+    children(node: INode): INode[];
+    annotatetextnode(node: INode, text: string): IAnnotation | null;
     interpretmarkup(text?: string): string;
   }
 
@@ -36,7 +36,7 @@ declare module annotatedtext {
   export function collecttextnodes(
     ast: any,
     text: string,
-    options?: IOptions
+    options?: IOptions,
   ): any[];
 
   export function composeannotation(

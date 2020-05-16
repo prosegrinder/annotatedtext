@@ -1,7 +1,7 @@
 import { IAnnotation, INode, IOptions } from "../types";
 
 const defaults: IOptions = {
-  children(node: INode) {
+  children(node: INode): INode[] {
     return node.children;
   },
   annotatetextnode(node: INode, text: string) {
@@ -11,7 +11,10 @@ const defaults: IOptions = {
           end: node.position.end.offset,
           start: node.position.start.offset,
         },
-        text: text.substring(node.position.start.offset, node.position.end.offset),
+        text: text.substring(
+          node.position.start.offset,
+          node.position.end.offset
+        ),
       };
     } else {
       return null;
@@ -22,7 +25,11 @@ const defaults: IOptions = {
   },
 };
 
-function collecttextnodes(ast: any, text: string, options: IOptions = defaults) {
+function collecttextnodes(
+  ast: any,
+  text: string,
+  options: IOptions = defaults
+) {
   const textannotations: IAnnotation[] = [];
 
   function recurse(node: INode) {
@@ -40,7 +47,11 @@ function collecttextnodes(ast: any, text: string, options: IOptions = defaults) 
   return textannotations;
 }
 
-function composeannotation(text: string, annotatedtextnodes: IAnnotation[], options: IOptions = defaults) {
+function composeannotation(
+  text: string,
+  annotatedtextnodes: IAnnotation[],
+  options: IOptions = defaults
+) {
   const annotations: IAnnotation[] = [];
   let prior: IAnnotation = {
     offset: {
@@ -80,9 +91,4 @@ function build(text: string, parse: any, options: IOptions = defaults) {
   return composeannotation(text, textnodes, options);
 }
 
-export {
-  build,
-  collecttextnodes,
-  composeannotation,
-  defaults,
-};
+export { build, collecttextnodes, composeannotation, defaults };
