@@ -1,4 +1,4 @@
-import { IAnnotation,INode, IOptions } from "../types";
+import { IAnnotation, INode, IOptions } from "../types";
 
 const defaults: IOptions = {
   children(node: INode) {
@@ -19,7 +19,7 @@ const defaults: IOptions = {
   },
   interpretmarkup(tex: string = "") {
     return "";
-  }
+  },
 };
 
 function collecttextnodes(ast: any, text: string, options: IOptions = defaults) {
