@@ -22,10 +22,10 @@ export interface INode {
   children: INode[];
   type: string;
   position: {
-    start: {
+    end: {
       offset: number
     },
-    end: {
+    start: {
       offset: number
     },
   };
