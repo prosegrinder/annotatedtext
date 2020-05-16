@@ -42,7 +42,7 @@ declare namespace annotatedtext {
   export function composeannotation(
     text: string,
     annotatedtextnodes: IAnnotatedtext,
-    options?: IOptions
+    options?: IOptions,
   ): IAnnotatedtext;
 
   export function build(
