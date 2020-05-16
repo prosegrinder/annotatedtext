@@ -1,4 +1,4 @@
-import {INode, IOptions, IAnnotation} from "../types";
+import { INode, IOptions, IAnnotation } from "../types";
 
 const defaults: IOptions = {
   children(node: INode) {
@@ -7,11 +7,11 @@ const defaults: IOptions = {
   annotatetextnode(node: INode, text: string) {
     if (node.type === "text") {
       return {
-        "text": text.substring(node.position.start.offset, node.position.end.offset),
-        "offset": {
-          "start": node.position.start.offset,
-          "end": node.position.end.offset
-        }
+        text: text.substring(node.position.start.offset, node.position.end.offset),
+        offset: {
+          start: node.position.start.offset,
+          end: node.position.end.offset,
+        },
       };
     } else {
       return null;
@@ -51,9 +51,12 @@ function composeannotation(text: string, annotatedtextnodes: IAnnotation[], opti
   for (const current of annotatedtextnodes) {
     const currenttext = text.substring(prior.offset.end, current.offset.start);
     annotations.push({
-      "markup": currenttext,
-      "interpretAs": options.interpretmarkup(currenttext),
-      "offset": { "start": prior.offset.end, "end": current.offset.start }
+      markup: currenttext,
+      interpretAs: options.interpretmarkup(currenttext),
+      offset: {
+        start: prior.offset.end,
+        end: current.offset.start,
+      },
     });
     annotations.push(current);
     prior = current;
@@ -61,9 +64,12 @@ function composeannotation(text: string, annotatedtextnodes: IAnnotation[], opti
   // Always add a final markup node to esnure trailing whitespace is added.
   const finaltext = text.substring(prior.offset.end, text.length);
   annotations.push({
-    "markup": finaltext,
-    "interpretAs": options.interpretmarkup(finaltext),
-    "offset": { "start": prior.offset.end, "end": text.length }
+    markup: finaltext,
+    interpretAs: options.interpretmarkup(finaltext),
+    offset: {
+      start: prior.offset.end,
+      end: text.length,
+    },
   });
   return { "annotation": annotations };
 }
@@ -75,8 +81,8 @@ function build(text: string, parse: any, options: IOptions = defaults) {
 }
 
 module.exports = {
-  defaults,
+  build,
   collecttextnodes,
   composeannotation,
-  build
+  defaults,
 };
