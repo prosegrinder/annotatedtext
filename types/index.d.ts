@@ -23,10 +23,10 @@ export interface INode {
   type: string;
   position: {
     end: {
-      offset: number
+      offset: number,
     },
     start: {
-      offset: number
+      offset: number,
     },
   };
 }

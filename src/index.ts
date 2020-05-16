@@ -1,4 +1,4 @@
-import { INode, IOptions, IAnnotation } from "../types";
+import { IAnnotation,INode, IOptions } from "../types";
 
 const defaults: IOptions = {
   children(node: INode) {
@@ -44,9 +44,9 @@ function composeannotation(text: string, annotatedtextnodes: IAnnotation[], opti
   const annotations: IAnnotation[] = [];
   let prior: IAnnotation = {
     offset: {
+      end: 0,
       start: 0,
-      end: 0
-    }
+    },
   };
   for (const current of annotatedtextnodes) {
     const currenttext = text.substring(prior.offset.end, current.offset.start);
@@ -71,7 +71,7 @@ function composeannotation(text: string, annotatedtextnodes: IAnnotation[], opti
       start: prior.offset.end,
     },
   });
-  return { "annotation": annotations };
+  return { annotation: annotations };
 }
 
 function build(text: string, parse: any, options: IOptions = defaults) {
