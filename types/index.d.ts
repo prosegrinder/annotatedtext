@@ -1,5 +1,3 @@
-export as namespace annotatedtext;
-
 export interface IAnnotation {
   markup?: string;
   interpretAs?: string;
