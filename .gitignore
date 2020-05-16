@@ -62,3 +62,12 @@ typings/
 
 # nodenv
 .node-version
+
+# TypeScript
+out
+
+# VS Code - Add project directory
+!.vscode
+
+# Webpack Directory
+dist/
