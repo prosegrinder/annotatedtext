@@ -13,7 +13,7 @@ const defaults: IOptions = {
         },
         text: text.substring(
           node.position.start.offset,
-          node.position.end.offset
+          node.position.end.offset,
         ),
       };
     } else {
@@ -28,7 +28,7 @@ const defaults: IOptions = {
 function collecttextnodes(
   ast: any,
   text: string,
-  options: IOptions = defaults
+  options: IOptions = defaults,
 ) {
   const textannotations: IAnnotation[] = [];
 
@@ -50,7 +50,7 @@ function collecttextnodes(
 function composeannotation(
   text: string,
   annotatedtextnodes: IAnnotation[],
-  options: IOptions = defaults
+  options: IOptions = defaults,
 ) {
   const annotations: IAnnotation[] = [];
   let prior: IAnnotation = {

@@ -48,7 +48,7 @@ declare namespace annotatedtext {
   export function build(
     text: string,
     parse: any,
-    options?: IOptions
+    options?: IOptions,
   ): IAnnotatedtext;
 }
 
