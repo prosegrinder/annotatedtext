@@ -1,4 +1,5 @@
-import { IAnnotation, INode, IOptions } from "../types";
+/* eslint-disable prefer-arrow/prefer-arrow-functions */
+import { IAnnotatedtext, IAnnotation, INode, IOptions } from "../types";
 
 const defaults: IOptions = {
   children(node: INode): INode[] {
@@ -20,16 +21,17 @@ const defaults: IOptions = {
       return null;
     }
   },
-  interpretmarkup(tex: string = "") {
-    return "";
+  interpretmarkup(text = "") {
+    return text;
   },
 };
 
 function collecttextnodes(
+  // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
   ast: any,
   text: string,
   options: IOptions = defaults,
-) {
+): IAnnotation[] {
   const textannotations: IAnnotation[] = [];
 
   function recurse(node: INode) {
@@ -51,7 +53,7 @@ function composeannotation(
   text: string,
   annotatedtextnodes: IAnnotation[],
   options: IOptions = defaults,
-) {
+): IAnnotatedtext {
   const annotations: IAnnotation[] = [];
   let prior: IAnnotation = {
     offset: {
@@ -85,8 +87,12 @@ function composeannotation(
   return { annotation: annotations };
 }
 
-function build(text: string, parse: any, options: IOptions = defaults) {
-  const nodes: INode = parse(text);
+function build(
+  text: string,
+  parse: (_text: string) => void,
+  options: IOptions = defaults,
+): IAnnotatedtext {
+  const nodes: INode | void = parse(text);
   const textnodes: IAnnotation[] = collecttextnodes(nodes, text, options);
   return composeannotation(text, textnodes, options);
 }
