@@ -1,4 +1,3 @@
-/* eslint-disable prefer-arrow/prefer-arrow-functions */
 import { IAnnotatedtext, IAnnotation, INode, IOptions } from "../types";
 
 const defaults: IOptions = {
