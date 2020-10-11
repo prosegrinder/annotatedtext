@@ -30,7 +30,6 @@ module.exports = {
   plugins: [
     "eslint-plugin-import",
     "eslint-plugin-jsdoc",
-    "eslint-plugin-prefer-arrow",
     "@typescript-eslint",
   ],
   rules: {
@@ -169,7 +168,6 @@ module.exports = {
         next: "return",
       },
     ],
-    "prefer-arrow/prefer-arrow-functions": "warn",
     "prefer-const": "warn",
     radix: "warn",
     "spaced-comment": [
