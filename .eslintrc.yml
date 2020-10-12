@@ -18,4 +18,5 @@ ignorePatterns:
   - "node_modules"
   - "out"
   - "src/test/**/*.json"
+  - "**/*.json"
 rules: {}
