@@ -14,7 +14,7 @@ parserOptions:
   sourceType: module
 plugins:
   - "@typescript-eslint"
-ignorePatters:
+ignorePatterns:
   - "node_modules"
   - "out"
   - "src/test/**/*.json"
