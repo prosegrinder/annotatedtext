@@ -1,7 +1,7 @@
 # annotatedtext
 
 [![Node.js CI](https://github.com/prosegrinder/annotatedtext/workflows/Node.js%20CI/badge.svg?branch=master)](https://github.com/prosegrinder/annotatedtext/actions?query=workflow%3A%22Node.js+CI%22+branch%3Amaster)
-[![Codacy Badge](https://app.codacy.com/project/badge/Grade/61d346040c61435ba1cd7fb920d5c383)](https://www.codacy.com/gh/prosegrinder/annotatedtext?utm_source=github.com&utm_medium=referral&utm_content=prosegrinder/annotatedtext&utm_campaign=Badge_Grade)
+[![ESLint](https://github.com/prosegrinder/annotatedtext/workflows/ESLint/badge.svg)](https://github.com/prosegrinder/annotatedtext/workflows/ESLint/badge.svg)
 
 A lightweight JavaScript library for converting markup documents into an
 annotated text format consumable by LanguageTool as
