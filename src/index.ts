@@ -26,7 +26,7 @@ const defaults: IOptions = {
 };
 
 function collecttextnodes(
-  ast: unknown,
+  ast: any,
   text: string,
   options: IOptions = defaults,
 ): IAnnotation[] {
