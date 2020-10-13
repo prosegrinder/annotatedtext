@@ -13,7 +13,7 @@
     "clean": "rm -rf out/*",
     "build": "tsc",
     "rebuild": "npm run clean && npm run build",
-    "lint": "eslint \"./**/*.ts\""
+    "lint": "eslint ."
   },
   "repository": {
     "type": "git",

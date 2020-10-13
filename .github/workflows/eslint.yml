@@ -1,3 +1,5 @@
+# See: https://github.com/bradennapier/eslint-plus-action
+
 name: "ESLint"
 on:
   # by adding a schedule task to this workflow we will automatically

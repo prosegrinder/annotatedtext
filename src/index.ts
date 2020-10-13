@@ -26,8 +26,7 @@ const defaults: IOptions = {
 };
 
 function collecttextnodes(
-  // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
-  ast: any,
+  ast: unknown,
   text: string,
   options: IOptions = defaults,
 ): IAnnotation[] {
@@ -44,7 +43,7 @@ function collecttextnodes(
     }
   }
 
-  recurse(ast);
+  recurse(ast as INode);
   return textannotations;
 }
 

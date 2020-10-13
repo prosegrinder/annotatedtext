@@ -34,10 +34,10 @@ declare namespace annotatedtext {
   export const defaults: IOptions;
 
   export function collecttextnodes(
-    ast: any,
+    ast: unknown,
     text: string,
     options?: IOptions,
-  ): any[];
+  ): IAnnotation[];
 
   export function composeannotation(
     text: string,
@@ -47,7 +47,7 @@ declare namespace annotatedtext {
 
   export function build(
     text: string,
-    parse: any,
+    parse: unknown,
     options?: IOptions,
   ): IAnnotatedtext;
 }
