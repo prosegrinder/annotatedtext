@@ -22,3 +22,4 @@ jobs:
         with:
           issueSummaryType: full
           reportIgnoredFiles: true
+          reportWarningsAsErrors: true
