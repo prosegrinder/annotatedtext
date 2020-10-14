@@ -9,7 +9,7 @@
     "types/index.d.ts"
   ],
   "scripts": {
-    "test": "mocha --reporter spec ./src/test/test.js",
+    "test": "mocha --reporter spec ./tests/test.js",
     "clean": "rm -rf out/*",
     "build": "tsc",
     "rebuild": "npm run clean && npm run build",
