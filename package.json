@@ -44,7 +44,7 @@
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-jsdoc": "^31.6.0",
     "mocha": "^8.0.1",
-    "remark-parse": "^8.0.0",
+    "remark-parse": "^9.0.0",
     "tslint": "^6.1.2",
     "typescript": "^4.0.2",
     "unified": "^9.0.0"

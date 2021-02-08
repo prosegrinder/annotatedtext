@@ -36,7 +36,11 @@ describe("#composeannotation()", function () {
       fs.readFileSync("./tests/textnodes.json", "utf8"),
     );
     const result = builder.composeannotation(text, textnodes, options);
-    // fs.writeFileSync("./out/ts/annotatedtext-compose.json", JSON.stringify(result), "utf8");
+    // fs.writeFileSync(
+    //   "./out/ts/annotatedtext-compose.json",
+    //   JSON.stringify(result),
+    //   "utf8",
+    // );
     expect(result).to.deep.equal(expected);
   });
 });
@@ -49,7 +53,11 @@ describe("#build()", function () {
     const text = fs.readFileSync("./tests/test.md", "utf8");
     const processor = unified().use(remarkparse, { commonmark: true });
     const result = builder.build(text, processor.parse, options);
-    // fs.writeFileSync("./out/ts/annotatedtext-build.json", JSON.stringify(result), "utf8");
+    // fs.writeFileSync(
+    //   "./out/ts/annotatedtext-build.json",
+    //   JSON.stringify(result),
+    //   "utf8",
+    // );
     expect(result).to.deep.equal(expected);
   });
 
@@ -77,7 +85,11 @@ describe("#build()", function () {
     const text = fs.readFileSync("./tests/escape-character.md", "utf8");
     const processor = unified().use(remarkparse, { commonmark: true });
     const result = builder.build(text, processor.parse, options);
-    // fs.writeFileSync("./out/ts/escape-character.json", JSON.stringify(result), "utf8");
+    // fs.writeFileSync(
+    //   "./out/ts/escape-character.json",
+    //   JSON.stringify(result),
+    //   "utf8",
+    // );
     expect(result).to.deep.equal(expected);
   });
 
