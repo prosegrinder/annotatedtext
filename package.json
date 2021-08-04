@@ -1,12 +1,14 @@
 {
   "name": "annotatedtext",
   "version": "0.7.0",
+  "type": "module",
+  "node": "^12.20.0 || ^14.13.1 || >=16.0.0",
   "description": "A lightweight JavaScript library for converting various markup documents into an annotated text format consumable by LanguageTool.",
-  "main": "out/index.js",
-  "types": "types/index.d.ts",
+  "exports": "./out/index.js",
+  "types": "./types/index.d.ts",
   "files": [
-    "out/**/*",
-    "types/index.d.ts"
+    "./out/**/*",
+    "./types/index.d.ts"
   ],
   "scripts": {
     "test": "mocha --reporter spec ./tests/test.js",
@@ -44,9 +46,9 @@
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-jsdoc": "^36.0.6",
     "mocha": "^9.0.3",
-    "remark-parse": "^9.0.0",
+    "remark-parse": "^10.0.0",
     "tslint": "^6.1.2",
     "typescript": "^4.0.2",
-    "unified": "^9.0.0"
+    "unified": "^10.1.0"
   }
 }

@@ -1,11 +1,16 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
-"use strict";
+// "use strict";
 
-var expect = require("chai").expect;
-var unified = require("unified");
-var remarkparse = require("remark-parse");
-var builder = require("../out/index");
-var fs = require("fs");
+// var expect = require("chai").expect;
+import chai from "chai";
+// var unified = require("unified");
+import { unified } from "unified";
+// var remarkparse = require("remark-parse");
+import remarkparse from "remark-parse";
+// var builder = require("../out/index");
+import builder from "../out/index.js";
+// var fs = require("fs");
+import fs from "fs";
 
 var options = builder.defaults;
 options.interpretmarkup = function (text) {
@@ -22,7 +27,7 @@ describe("#collecttextnodes()", function () {
     );
     const result = builder.collecttextnodes(ast, text, options);
     // fs.writeFileSync("./out/ts/textnodes.json", JSON.stringify(result), "utf8");
-    expect(result).to.deep.equal(expected);
+    chai.expect(result).to.deep.equal(expected);
   });
 });
 
@@ -41,7 +46,7 @@ describe("#composeannotation()", function () {
     //   JSON.stringify(result),
     //   "utf8",
     // );
-    expect(result).to.deep.equal(expected);
+    chai.expect(result).to.deep.equal(expected);
   });
 });
 
@@ -58,7 +63,7 @@ describe("#build()", function () {
     //   JSON.stringify(result),
     //   "utf8",
     // );
-    expect(result).to.deep.equal(expected);
+    chai.expect(result).to.deep.equal(expected);
   });
 
   it("should match the original document exactly", function () {
@@ -75,7 +80,7 @@ describe("#build()", function () {
       result += text;
     }
     // fs.writeFileSync("./out/ts/test.md", result, "utf8");
-    expect(result).to.equal(expected);
+    chai.expect(result).to.equal(expected);
   });
 
   it("should return the expected annotated text with backslashes object", function () {
@@ -90,7 +95,7 @@ describe("#build()", function () {
     //   JSON.stringify(result),
     //   "utf8",
     // );
-    expect(result).to.deep.equal(expected);
+    chai.expect(result).to.deep.equal(expected);
   });
 
   it("should match the original document with backslashes exactly", function () {
@@ -104,6 +109,6 @@ describe("#build()", function () {
       result += text;
     }
     // fs.writeFileSync("./out/ts/escape-character.md", result, "utf8");
-    expect(result).to.equal(expected);
+    chai.expect(result).to.equal(expected);
   });
 });
