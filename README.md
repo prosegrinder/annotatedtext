@@ -47,9 +47,7 @@ LanguageTool's `data` parameter.
 This is the main function you'll use in implementing for different parsers.
 
 ```js
-// "use strict";
-// var builder = require("annotatedtext");
-import builder from ‘annotatedtext’;
+import * as builder from ‘annotatedtext’;
 const processor = unified().use(mark, { commonmark: true });
 var annotatedtext = builder.build(text, processor.parse);
 JSON.stringify(annotatedtext);
