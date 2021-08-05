@@ -1,15 +1,10 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 // "use strict";
 
-// var expect = require("chai").expect;
 import chai from "chai";
-// var unified = require("unified");
 import { unified } from "unified";
-// var remarkparse = require("remark-parse");
 import remarkparse from "remark-parse";
-// var builder = require("../out/index");
-import builder from "../out/index.js";
-// var fs = require("fs");
+import * as builder from "../out/index.js";
 import fs from "fs";
 
 var options = builder.defaults;
