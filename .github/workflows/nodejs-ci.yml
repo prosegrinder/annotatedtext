@@ -27,3 +27,5 @@ jobs:
           CI: true
       - run: npm run lint
         name: ESLint
+      - run: npm pack
+        name: Pack
