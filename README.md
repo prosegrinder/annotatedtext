@@ -1,6 +1,6 @@
 # annotatedtext
 
-[![Node.js CI](https://github.com/prosegrinder/annotatedtext/workflows/Node.js%20CI/badge.svg?branch=master)](https://github.com/prosegrinder/annotatedtext/actions?query=workflow%3A%22Node.js+CI%22+branch%3Amaster)
+[![Node.js CI](https://github.com/prosegrinder/annotatedtext/workflows/Node.js%20CI/badge.svg?branch=main)](https://github.com/prosegrinder/annotatedtext/actions?query=workflow%3A%22Node.js+CI%22+branch%3Amain)
 [![ESLint](https://github.com/prosegrinder/annotatedtext/workflows/ESLint/badge.svg)](https://github.com/prosegrinder/annotatedtext/actions?query=workflow%3AESLint)
 
 A lightweight JavaScript library for converting markup documents into an
@@ -168,10 +168,10 @@ The following packages wrap `annotatedtext` for specific parsers:
 
 - [`annotatedtext-remark`](https://github.com/prosegrinder/annotatedtext-remark)
   for markdown using
-  [remark-parse](https://github.com/remarkjs/remark/tree/master/packages/remark-parse).
+  [remark-parse](https://github.com/remarkjs/remark/tree/main/packages/remark-parse).
 - [`annotatedtext-rehype`](https://github.com/prosegrinder/annotatedtext-rehype)
   for html using
-  [rehype-parse](https://github.com/rehypejs/rehype/tree/master/packages/rehype-parse).
+  [rehype-parse](https://github.com/rehypejs/rehype/tree/main/packages/rehype-parse).
 
 ## License
 
