@@ -1,6 +1,6 @@
 {
   "name": "annotatedtext",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "type": "module",
   "description": "A lightweight JavaScript library for converting various markup documents into an annotated text format consumable by LanguageTool.",
   "engines": {
