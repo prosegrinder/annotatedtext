@@ -1,20 +1,26 @@
 version: 2
 updates:
-- package-ecosystem: npm
-  directory: "/"
-  schedule:
-    interval: monthly
-    time: "17:00"
-    timezone: America/New_York
-  open-pull-requests-limit: 10
-  reviewers:
-  - davidlday
-- package-ecosystem: "github-actions"
-  directory: "/"
-  schedule:
-    interval: monthly
-    time: "17:00"
-    timezone: America/New_York
-  open-pull-requests-limit: 10
-  reviewers:
-  - davidlday
+  - package-ecosystem: npm
+    directory: "/"
+    schedule:
+      interval: monthly
+      time: "17:00"
+      timezone: America/New_York
+    open-pull-requests-limit: 10
+    commit-message:
+      prefix: "chore"
+      include: scope
+    reviewers:
+      - davidlday
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: monthly
+      time: "17:00"
+      timezone: America/New_York
+    commit-message:
+      prefix: "chore"
+      include: scope
+    open-pull-requests-limit: 10
+    reviewers:
+      - davidlday
