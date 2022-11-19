@@ -24,4 +24,4 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           baseBranchName: "main"
-          batchPullTitle: "chore(deps): dependabot batcher updates"
+          batchPullTitle: "chore(deps): dependabot batch updates"
