@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: "Combine Dependabot PRs"
-        uses: "Legal-and-General/dependabot-batcher@1.02"
+        uses: "Legal-and-General/dependabot-batcher@1.0.2"
         with:
           token: ${{ secrets.YOUR_TOKEN }}
           baseBranchName: "main"
