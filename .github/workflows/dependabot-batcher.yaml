@@ -9,9 +9,19 @@ jobs:
   dependabot-batcher:
     runs-on: ubuntu-latest
     steps:
+      - name: "Checkout Repo"
+        uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup Node
+        uses: actions/setup-node@v3.5.1
+        with:
+          node-version: lts/*
+
       - name: "Combine Dependabot PRs"
         uses: "Legal-and-General/dependabot-batcher@v1.0.2"
         with:
-          token: ${{ secrets.YOUR_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
           baseBranchName: "main"
           batchPullTitle: "chore(deps): dependabot batcher updates"
