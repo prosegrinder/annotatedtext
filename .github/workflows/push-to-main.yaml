@@ -21,10 +21,6 @@ jobs:
         id: version-bump
         uses: "phips28/gh-action-bump-version@9.0.42"
         with:
-          minor-wording: "add,Adds,new"
-          major-wording: "MAJOR,cut-major"
-          patch-wording: "patch,fixes"
-          rc-wording: "RELEASE,alpha"
           tag-prefix: "v"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
