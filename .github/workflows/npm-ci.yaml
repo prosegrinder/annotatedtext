@@ -1,0 +1,11 @@
+name: Node.js CI
+
+on: pull_request
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  npm-ci:
+    uses: prosegrinder/.github/.github/workflows/npm-ci.yaml
