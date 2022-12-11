@@ -1,0 +1,4 @@
+# Force LF line endings for all text files.
+# This is required for the build to work on Windows.
+# See https://git-scm.com/docs/gitattributes#_end_of_line_conversion
+*  text=auto   eol=lf
