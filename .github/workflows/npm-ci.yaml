@@ -8,4 +8,4 @@ concurrency:
 
 jobs:
   npm-ci:
-    uses: prosegrinder/.github/.github/workflows/npm-ci.yaml
+    uses: prosegrinder/.github/.github/workflows/npm-ci.yaml@main

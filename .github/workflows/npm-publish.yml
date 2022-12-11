@@ -19,7 +19,7 @@ concurrency:
 
 jobs:
   publish:
-    uses: prosegrinder/.github/.github/workflows/npm-publish.yaml
+    uses: prosegrinder/.github/.github/workflows/npm-publish.yaml@main
     with:
       newversion: ${{ github.event.inputs.newversion }}
     secrets:
