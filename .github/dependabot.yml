@@ -9,6 +9,7 @@ updates:
     open-pull-requests-limit: 10
     commit-message:
       prefix: "chore"
+      prefix-development: "build"
       include: scope
     reviewers:
       - davidlday
