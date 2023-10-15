@@ -1,0 +1,5 @@
+[tool.commitizen]
+name = "cz_conventional_commits"
+tag_format = "v$version"
+version_provider = "npm"
+version_scheme = "semver"
