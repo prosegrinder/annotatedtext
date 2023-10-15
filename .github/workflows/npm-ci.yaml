@@ -12,6 +12,7 @@ jobs:
     uses: prosegrinder/.github/.github/workflows/npm-lint.yaml@main
 
   test:
+    needs: lint
     uses: prosegrinder/.github/.github/workflows/npm-test.yaml@main
 
   cz-dry-run:
