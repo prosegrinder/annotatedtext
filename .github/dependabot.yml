@@ -8,7 +8,7 @@ updates:
       timezone: America/New_York
     open-pull-requests-limit: 10
     commit-message:
-      prefix: "patch"
+      prefix: "fix"
       prefix-development: "build"
       include: scope
     reviewers:
