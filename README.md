@@ -1,6 +1,6 @@
 # annotatedtext
 
-[![Node.js CI](https://github.com/prosegrinder/annotatedtext/workflows/Node.js%20CI/badge.svg?branch=main)](https://github.com/prosegrinder/annotatedtext/actions?query=workflow%3A%22Node.js+CI%22+branch%3Amain)
+[![Node.js CI](https://github.com/prosegrinder/annotatedtext/actions/workflows/npm-ci.yaml/badge.svg)](https://github.com/prosegrinder/annotatedtext/actions/workflows/npm-ci.yaml)
 
 A lightweight JavaScript library for converting markup documents into an
 annotated text format consumable by LanguageTool as
