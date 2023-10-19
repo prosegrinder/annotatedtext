@@ -85,14 +85,30 @@ function composeannotation(
   return { annotation: annotations };
 }
 
-function build(
+// function build(
+//   text: string,
+//   parse: (_text: string) => INode,
+//   options: IOptions = defaults,
+// ): IAnnotatedtext {
+//   try {
+//     const nodes: INode = parse(text);
+//     if (nodes === undefined) {
+//       throw new Error("Parser did not return a valid AST.");
+//     } else {
+//       return compose(text, nodes, options);
+//     }
+//   } catch (error) {
+//     throw new Error(`Parser threw an error: ${error}`);
+//   }
+// }
+
+function compose(
   text: string,
-  parse: (_text: string) => void,
+  nodes: INode,
   options: IOptions = defaults,
 ): IAnnotatedtext {
-  const nodes: INode | void = parse(text);
   const textnodes: IAnnotation[] = collecttextnodes(nodes, text, options);
   return composeannotation(text, textnodes, options);
 }
 
-export { build, collecttextnodes, composeannotation, defaults };
+export { collecttextnodes, compose, composeannotation, defaults };
