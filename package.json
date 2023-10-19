@@ -49,8 +49,6 @@
     "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-jsdoc": "^46.4.5",
     "mocha": "^10.0.0",
-    "remark-parse": "^10.0.1",
-    "typescript": "^5.0.3",
-    "unified": "^10.1.2"
+    "typescript": "^5.0.3"
   }
 }

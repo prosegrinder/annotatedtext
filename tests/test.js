@@ -2,8 +2,6 @@
 // "use strict";
 
 import chai from "chai";
-import { unified } from "unified";
-import remarkparse from "remark-parse";
 import * as builder from "../out/index.js";
 import fs from "fs";
 
@@ -146,9 +144,9 @@ describe("#compose()", function () {
 
   it("should match the original document with backslashes exactly", function () {
     const expected = fs.readFileSync("./tests/escape-character.md", "utf8");
-    const nodes = unified()
-      .use(remarkparse, { commonmark: true })
-      .parse(expected);
+    const nodes = JSON.parse(
+      fs.readFileSync("./tests/escape-character-nodes.json", "utf8"),
+    );
     const annotatedtext = builder.compose(expected, nodes, options);
     const annotation = annotatedtext.annotation;
     let result = "";
