@@ -1,0 +1,715 @@
+{
+  "type": "root",
+  "children": [
+    {
+      "type": "heading",
+      "depth": 1,
+      "children": [
+        {
+          "type": "text",
+          "value": "ATFB",
+          "position": {
+            "start": {
+              "line": 1,
+              "column": 3,
+              "offset": 2
+            },
+            "end": {
+              "line": 1,
+              "column": 7,
+              "offset": 6
+            }
+          }
+        }
+      ],
+      "position": {
+        "start": {
+          "line": 1,
+          "column": 1,
+          "offset": 0
+        },
+        "end": {
+          "line": 1,
+          "column": 7,
+          "offset": 6
+        }
+      }
+    },
+    {
+      "type": "paragraph",
+      "children": [
+        {
+          "type": "text",
+          "value": "Annotated Text Format Builder (ATFB) is a JavaScript module for converting various\ntext formats to an annotated text format suitable for processing by the LanguageTool server.",
+          "position": {
+            "start": {
+              "line": 3,
+              "column": 1,
+              "offset": 8
+            },
+            "end": {
+              "line": 4,
+              "column": 93,
+              "offset": 183
+            }
+          }
+        }
+      ],
+      "position": {
+        "start": {
+          "line": 3,
+          "column": 1,
+          "offset": 8
+        },
+        "end": {
+          "line": 4,
+          "column": 93,
+          "offset": 183
+        }
+      }
+    },
+    {
+      "type": "paragraph",
+      "children": [
+        {
+          "type": "text",
+          "value": "This is just a playground for a proof of concent and may move to a better home if it looks useful.",
+          "position": {
+            "start": {
+              "line": 6,
+              "column": 1,
+              "offset": 185
+            },
+            "end": {
+              "line": 6,
+              "column": 99,
+              "offset": 283
+            }
+          }
+        }
+      ],
+      "position": {
+        "start": {
+          "line": 6,
+          "column": 1,
+          "offset": 185
+        },
+        "end": {
+          "line": 6,
+          "column": 99,
+          "offset": 283
+        }
+      }
+    },
+    {
+      "type": "heading",
+      "depth": 2,
+      "children": [
+        {
+          "type": "text",
+          "value": "History",
+          "position": {
+            "start": {
+              "line": 8,
+              "column": 4,
+              "offset": 288
+            },
+            "end": {
+              "line": 8,
+              "column": 11,
+              "offset": 295
+            }
+          }
+        }
+      ],
+      "position": {
+        "start": {
+          "line": 8,
+          "column": 1,
+          "offset": 285
+        },
+        "end": {
+          "line": 8,
+          "column": 11,
+          "offset": 295
+        }
+      }
+    },
+    {
+      "type": "paragraph",
+      "children": [
+        {
+          "type": "link",
+          "title": null,
+          "url": "https://languagetool.org",
+          "children": [
+            {
+              "type": "text",
+              "value": "LanguageTool",
+              "position": {
+                "start": {
+                  "line": 10,
+                  "column": 2,
+                  "offset": 298
+                },
+                "end": {
+                  "line": 10,
+                  "column": 14,
+                  "offset": 310
+                }
+              }
+            }
+          ],
+          "position": {
+            "start": {
+              "line": 10,
+              "column": 1,
+              "offset": 297
+            },
+            "end": {
+              "line": 10,
+              "column": 41,
+              "offset": 337
+            }
+          }
+        },
+        {
+          "type": "text",
+          "value": " is an ",
+          "position": {
+            "start": {
+              "line": 10,
+              "column": 41,
+              "offset": 337
+            },
+            "end": {
+              "line": 10,
+              "column": 48,
+              "offset": 344
+            }
+          }
+        },
+        {
+          "type": "strong",
+          "children": [
+            {
+              "type": "text",
+              "value": "excellent",
+              "position": {
+                "start": {
+                  "line": 10,
+                  "column": 50,
+                  "offset": 346
+                },
+                "end": {
+                  "line": 10,
+                  "column": 59,
+                  "offset": 355
+                }
+              }
+            }
+          ],
+          "position": {
+            "start": {
+              "line": 10,
+              "column": 48,
+              "offset": 344
+            },
+            "end": {
+              "line": 10,
+              "column": 61,
+              "offset": 357
+            }
+          }
+        },
+        {
+          "type": "text",
+          "value": " open source spell and grammar checker. It's\nbeing integrated into more and more IDEs so that developers can leverage it alongside their other\ntools. However, LanguageTool's creator has explicitly stated, ",
+          "position": {
+            "start": {
+              "line": 10,
+              "column": 61,
+              "offset": 357
+            },
+            "end": {
+              "line": 12,
+              "column": 63,
+              "offset": 562
+            }
+          }
+        },
+        {
+          "type": "link",
+          "title": null,
+          "url": "https://forum.languagetool.org/t/rules-for-markdown/374/2",
+          "children": [
+            {
+              "type": "text",
+              "value": "\"LT only works on plain text, so you'll need to either convert Markdown to plain text first, or tell LT what the markup is.\"",
+              "position": {
+                "start": {
+                  "line": 12,
+                  "column": 64,
+                  "offset": 563
+                },
+                "end": {
+                  "line": 12,
+                  "column": 188,
+                  "offset": 687
+                }
+              }
+            }
+          ],
+          "position": {
+            "start": {
+              "line": 12,
+              "column": 63,
+              "offset": 562
+            },
+            "end": {
+              "line": 12,
+              "column": 248,
+              "offset": 747
+            }
+          }
+        },
+        {
+          "type": "text",
+          "value": " Pretty clear.",
+          "position": {
+            "start": {
+              "line": 12,
+              "column": 248,
+              "offset": 747
+            },
+            "end": {
+              "line": 12,
+              "column": 262,
+              "offset": 761
+            }
+          }
+        }
+      ],
+      "position": {
+        "start": {
+          "line": 10,
+          "column": 1,
+          "offset": 297
+        },
+        "end": {
+          "line": 12,
+          "column": 262,
+          "offset": 761
+        }
+      }
+    },
+    {
+      "type": "paragraph",
+      "children": [
+        {
+          "type": "text",
+          "value": "Tdhis makes perfect sense. LanguageTool is meant to parse and analyze natural languages, not computer languages.",
+          "position": {
+            "start": {
+              "line": 14,
+              "column": 1,
+              "offset": 763
+            },
+            "end": {
+              "line": 14,
+              "column": 113,
+              "offset": 875
+            }
+          }
+        }
+      ],
+      "position": {
+        "start": {
+          "line": 14,
+          "column": 1,
+          "offset": 763
+        },
+        "end": {
+          "line": 14,
+          "column": 113,
+          "offset": 875
+        }
+      }
+    },
+    {
+      "type": "heading",
+      "depth": 2,
+      "children": [
+        {
+          "type": "text",
+          "value": "Goals",
+          "position": {
+            "start": {
+              "line": 16,
+              "column": 4,
+              "offset": 880
+            },
+            "end": {
+              "line": 16,
+              "column": 9,
+              "offset": 885
+            }
+          }
+        }
+      ],
+      "position": {
+        "start": {
+          "line": 16,
+          "column": 1,
+          "offset": 877
+        },
+        "end": {
+          "line": 16,
+          "column": 9,
+          "offset": 885
+        }
+      }
+    },
+    {
+      "type": "paragraph",
+      "children": [
+        {
+          "type": "text",
+          "value": "So what are the goals here? Glad you asked:",
+          "position": {
+            "start": {
+              "line": 18,
+              "column": 1,
+              "offset": 887
+            },
+            "end": {
+              "line": 18,
+              "column": 44,
+              "offset": 930
+            }
+          }
+        }
+      ],
+      "position": {
+        "start": {
+          "line": 18,
+          "column": 1,
+          "offset": 887
+        },
+        "end": {
+          "line": 18,
+          "column": 44,
+          "offset": 930
+        }
+      }
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "start": null,
+      "spread": false,
+      "children": [
+        {
+          "type": "listItem",
+          "spread": false,
+          "checked": null,
+          "children": [
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "type": "text",
+                  "value": "Create a simple, lightweight parser in JavaScript.",
+                  "position": {
+                    "start": {
+                      "line": 20,
+                      "column": 3,
+                      "offset": 934
+                    },
+                    "end": {
+                      "line": 20,
+                      "column": 53,
+                      "offset": 984
+                    }
+                  }
+                }
+              ],
+              "position": {
+                "start": {
+                  "line": 20,
+                  "column": 3,
+                  "offset": 934
+                },
+                "end": {
+                  "line": 20,
+                  "column": 53,
+                  "offset": 984
+                }
+              }
+            }
+          ],
+          "position": {
+            "start": {
+              "line": 20,
+              "column": 1,
+              "offset": 932
+            },
+            "end": {
+              "line": 20,
+              "column": 53,
+              "offset": 984
+            }
+          }
+        },
+        {
+          "type": "listItem",
+          "spread": false,
+          "checked": null,
+          "children": [
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "type": "text",
+                  "value": "Be portable across editors that leverage JavaScript in their plugins.",
+                  "position": {
+                    "start": {
+                      "line": 21,
+                      "column": 3,
+                      "offset": 987
+                    },
+                    "end": {
+                      "line": 21,
+                      "column": 72,
+                      "offset": 1056
+                    }
+                  }
+                }
+              ],
+              "position": {
+                "start": {
+                  "line": 21,
+                  "column": 3,
+                  "offset": 987
+                },
+                "end": {
+                  "line": 21,
+                  "column": 72,
+                  "offset": 1056
+                }
+              }
+            }
+          ],
+          "position": {
+            "start": {
+              "line": 21,
+              "column": 1,
+              "offset": 985
+            },
+            "end": {
+              "line": 21,
+              "column": 72,
+              "offset": 1056
+            }
+          }
+        },
+        {
+          "type": "listItem",
+          "spread": false,
+          "checked": null,
+          "children": [
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "type": "text",
+                  "value": "Map various formatting languages to the simple Annotated Text format described in LanguageTool's API.",
+                  "position": {
+                    "start": {
+                      "line": 22,
+                      "column": 3,
+                      "offset": 1059
+                    },
+                    "end": {
+                      "line": 22,
+                      "column": 104,
+                      "offset": 1160
+                    }
+                  }
+                }
+              ],
+              "position": {
+                "start": {
+                  "line": 22,
+                  "column": 3,
+                  "offset": 1059
+                },
+                "end": {
+                  "line": 22,
+                  "column": 104,
+                  "offset": 1160
+                }
+              }
+            }
+          ],
+          "position": {
+            "start": {
+              "line": 22,
+              "column": 1,
+              "offset": 1057
+            },
+            "end": {
+              "line": 22,
+              "column": 104,
+              "offset": 1160
+            }
+          }
+        },
+        {
+          "type": "listItem",
+          "spread": false,
+          "checked": null,
+          "children": [
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "type": "text",
+                  "value": "Use this readme as a test document.",
+                  "position": {
+                    "start": {
+                      "line": 23,
+                      "column": 3,
+                      "offset": 1163
+                    },
+                    "end": {
+                      "line": 23,
+                      "column": 38,
+                      "offset": 1198
+                    }
+                  }
+                }
+              ],
+              "position": {
+                "start": {
+                  "line": 23,
+                  "column": 3,
+                  "offset": 1163
+                },
+                "end": {
+                  "line": 23,
+                  "column": 38,
+                  "offset": 1198
+                }
+              }
+            }
+          ],
+          "position": {
+            "start": {
+              "line": 23,
+              "column": 1,
+              "offset": 1161
+            },
+            "end": {
+              "line": 23,
+              "column": 38,
+              "offset": 1198
+            }
+          }
+        }
+      ],
+      "position": {
+        "start": {
+          "line": 20,
+          "column": 1,
+          "offset": 932
+        },
+        "end": {
+          "line": 23,
+          "column": 38,
+          "offset": 1198
+        }
+      }
+    },
+    {
+      "type": "paragraph",
+      "children": [
+        {
+          "type": "text",
+          "value": "Oh, and because we shouldn't assume the text ends with text, here's a link to one of my favorite quotes by Socrates:\n",
+          "position": {
+            "start": {
+              "line": 25,
+              "column": 1,
+              "offset": 1200
+            },
+            "end": {
+              "line": 26,
+              "column": 1,
+              "offset": 1317
+            }
+          }
+        },
+        {
+          "type": "link",
+          "title": null,
+          "url": "https://www.brainyquote.com/quotes/socrates_125872",
+          "children": [
+            {
+              "type": "text",
+              "value": "\"I am the wisest man alive, for I know one thing, and that is that I know nothing.\"",
+              "position": {
+                "start": {
+                  "line": 26,
+                  "column": 2,
+                  "offset": 1318
+                },
+                "end": {
+                  "line": 26,
+                  "column": 85,
+                  "offset": 1401
+                }
+              }
+            }
+          ],
+          "position": {
+            "start": {
+              "line": 26,
+              "column": 1,
+              "offset": 1317
+            },
+            "end": {
+              "line": 26,
+              "column": 138,
+              "offset": 1454
+            }
+          }
+        }
+      ],
+      "position": {
+        "start": {
+          "line": 25,
+          "column": 1,
+          "offset": 1200
+        },
+        "end": {
+          "line": 26,
+          "column": 138,
+          "offset": 1454
+        }
+      }
+    }
+  ],
+  "position": {
+    "start": {
+      "line": 1,
+      "column": 1,
+      "offset": 0
+    },
+    "end": {
+      "line": 27,
+      "column": 1,
+      "offset": 1455
+    }
+  }
+}

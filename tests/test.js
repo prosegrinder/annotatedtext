@@ -107,3 +107,55 @@ describe("#build()", function () {
     chai.expect(result).to.equal(expected);
   });
 });
+
+describe("#compose()", function () {
+  it("should return the expected annotated text object", function () {
+    const expected = JSON.parse(
+      fs.readFileSync("./tests/annotatedtext.json", "utf8"),
+    );
+    const text = fs.readFileSync("./tests/test.md", "utf8");
+    const nodes = JSON.parse(fs.readFileSync("./tests/nodes.json", "utf8"));
+    const result = builder.compose(text, nodes, options);
+    chai.expect(result).to.deep.equal(expected);
+  });
+
+  it("should match the original document exactly", function () {
+    const expected = fs.readFileSync("./tests/test.md", "utf8");
+    const nodes = JSON.parse(fs.readFileSync("./tests/nodes.json", "utf8"));
+    const annotatedtext = builder.compose(expected, nodes, options);
+    const annotation = annotatedtext.annotation;
+    let result = "";
+    for (let node of annotation) {
+      const text = node.text ? node.text : node.markup;
+      result += text;
+    }
+    chai.expect(result).to.equal(expected);
+  });
+
+  it("should return the expected annotated text with backslashes object", function () {
+    const expected = JSON.parse(
+      fs.readFileSync("./tests/escape-character.json", "utf8"),
+    );
+    const text = fs.readFileSync("./tests/escape-character.md", "utf8");
+    const nodes = JSON.parse(
+      fs.readFileSync("./tests/escape-character-nodes.json", "utf8"),
+    );
+    const result = builder.compose(text, nodes, options);
+    chai.expect(result).to.deep.equal(expected);
+  });
+
+  it("should match the original document with backslashes exactly", function () {
+    const expected = fs.readFileSync("./tests/escape-character.md", "utf8");
+    const nodes = JSON.parse(
+      fs.readFileSync("./tests/escape-character-nodes.json", "utf8"),
+    );
+    const annotatedtext = builder.compose(expected, nodes, options);
+    const annotation = annotatedtext.annotation;
+    let result = "";
+    for (let node of annotation) {
+      const text = node.text ? node.text : node.markup;
+      result += text;
+    }
+    chai.expect(result).to.equal(expected);
+  });
+});
