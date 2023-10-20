@@ -68,7 +68,7 @@ JSON.stringify(annotatedtext);
 
 **_Deprecated_**
 
-Use [`compose`](#compose) instead.
+Use [`compose`](#composetext-node-options--defaults) instead.
 
 Returns Annotated Text as described by LanguageTool's API:
 
