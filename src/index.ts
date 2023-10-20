@@ -1,10 +1,25 @@
 import { IAnnotatedtext, IAnnotation, INode, IOptions } from "../types";
 
 /**
- * @module
+ * @module annotatedtext
+ * @example
+ * import { compose } from "annotatedtext";
+ * import { parse } from "remark-parse";
+ * import { unified } from "unified";
+ *
+ * const text = "This is a sentence.";
+ * const processor = unified()
+ *    .use(remarkparse, options.remarkoptions)
+ *    .use(frontmatter, ["yaml", "toml"])
+ *    .parse(text);
+ *
+ * const annotatedtext = compose(text, parse);
+ * console.log(annotatedtext);
+ *
  * @description
  * This module provides functions for building annotated text
  * suitable for use with LanguageTool.
+ *
  * @see https://languagetool.org/http-api/
  */
 
@@ -123,12 +138,12 @@ function composeannotation(
  * suitable for use with LanguageTool.
  *
  * @deprecated since version 1.2.0.
- * Will be delete in version 2.0.
+ * Will be deleted in version 2.0.
  *
  * Use `compose` instead. This was done to remove the
  * test dependencies on unified and remark-parse. This
  * library was never meant to be specific to those libraries
- * or any particularly text format (html, markdown, etc.).
+ * or any particularly text format (HTML, markdown, etc.).
  *
  * Libraries that use this library should be responsible for
  * parsing the text and passing the AST to this library.
