@@ -25,7 +25,50 @@ npm install annotatedtext
 
 ## API
 
-### `build(text, parse, options = defaults)`
+### `compose(text, node, options = defaults)`
+
+Returns Annotated Text as described by LanguageTool's API:
+
+```json
+{
+  "annotation": [
+    { "text": "A " },
+    { "markup": "<b>" },
+    { "text": "test" },
+    { "markup": "</b>" }
+  ]
+}
+```
+
+Run the object through `JSON.stringfy()` to get a string suitable for passing to
+LanguageTool's `data` parameter.
+
+This is the main function you'll use in implementing for different parsers.
+
+```js
+import { compose } from "annotatedtext";
+import { parse } from "remark-parse";
+import { unified } from "unified";
+
+const text = "This is a sentence.";
+const processor = unified()
+  .use(remarkparse, options.remarkoptions)
+  .use(frontmatter, ["yaml", "toml"])
+  .parse(text);
+
+const annotatedtext = compose(text, parse);
+JSON.stringify(annotatedtext);
+```
+
+- `text`: The text from the markup document in its original form.
+- `node`: The root AST node that conforms to INode.
+- _`options`_: (optional) See [`defaults`](#defaults).
+
+### ~~`build(text, parse, options = defaults)`~~
+
+**_Deprecated_**
+
+Use [`compose`](#compose) instead.
 
 Returns Annotated Text as described by LanguageTool's API:
 
