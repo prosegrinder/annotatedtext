@@ -1,0 +1,321 @@
+{
+  "type": "root",
+  "children": [
+    {
+      "type": "heading",
+      "depth": 1,
+      "children": [
+        {
+          "type": "text",
+          "value": "Backslash + Special Char = Shifted Highlight",
+          "position": {
+            "start": {
+              "line": 1,
+              "column": 3,
+              "offset": 2
+            },
+            "end": {
+              "line": 1,
+              "column": 47,
+              "offset": 46
+            }
+          }
+        }
+      ],
+      "position": {
+        "start": {
+          "line": 1,
+          "column": 1,
+          "offset": 0
+        },
+        "end": {
+          "line": 1,
+          "column": 47,
+          "offset": 46
+        }
+      }
+    },
+    {
+      "type": "paragraph",
+      "children": [
+        {
+          "type": "text",
+          "value": "This is a inccoreect sentence.",
+          "position": {
+            "start": {
+              "line": 3,
+              "column": 1,
+              "offset": 48
+            },
+            "end": {
+              "line": 3,
+              "column": 31,
+              "offset": 78
+            }
+          }
+        }
+      ],
+      "position": {
+        "start": {
+          "line": 3,
+          "column": 1,
+          "offset": 48
+        },
+        "end": {
+          "line": 3,
+          "column": 31,
+          "offset": 78
+        }
+      }
+    },
+    {
+      "type": "paragraph",
+      "children": [
+        {
+          "type": "text",
+          "value": "Here is the culprit: -.",
+          "position": {
+            "start": {
+              "line": 5,
+              "column": 1,
+              "offset": 80
+            },
+            "end": {
+              "line": 5,
+              "column": 25,
+              "offset": 104
+            }
+          }
+        }
+      ],
+      "position": {
+        "start": {
+          "line": 5,
+          "column": 1,
+          "offset": 80
+        },
+        "end": {
+          "line": 5,
+          "column": 25,
+          "offset": 104
+        }
+      }
+    },
+    {
+      "type": "paragraph",
+      "children": [
+        {
+          "type": "text",
+          "value": "This is annother incorrect sentence.",
+          "position": {
+            "start": {
+              "line": 7,
+              "column": 1,
+              "offset": 106
+            },
+            "end": {
+              "line": 7,
+              "column": 37,
+              "offset": 142
+            }
+          }
+        }
+      ],
+      "position": {
+        "start": {
+          "line": 7,
+          "column": 1,
+          "offset": 106
+        },
+        "end": {
+          "line": 7,
+          "column": 37,
+          "offset": 142
+        }
+      }
+    },
+    {
+      "type": "paragraph",
+      "children": [
+        {
+          "type": "text",
+          "value": "Here is another culprit: ;.",
+          "position": {
+            "start": {
+              "line": 9,
+              "column": 1,
+              "offset": 144
+            },
+            "end": {
+              "line": 9,
+              "column": 29,
+              "offset": 172
+            }
+          }
+        }
+      ],
+      "position": {
+        "start": {
+          "line": 9,
+          "column": 1,
+          "offset": 144
+        },
+        "end": {
+          "line": 9,
+          "column": 29,
+          "offset": 172
+        }
+      }
+    },
+    {
+      "type": "paragraph",
+      "children": [
+        {
+          "type": "text",
+          "value": "This is annother incorrect sentence.",
+          "position": {
+            "start": {
+              "line": 11,
+              "column": 1,
+              "offset": 174
+            },
+            "end": {
+              "line": 11,
+              "column": 37,
+              "offset": 210
+            }
+          }
+        }
+      ],
+      "position": {
+        "start": {
+          "line": 11,
+          "column": 1,
+          "offset": 174
+        },
+        "end": {
+          "line": 11,
+          "column": 37,
+          "offset": 210
+        }
+      }
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "start": null,
+      "spread": false,
+      "children": [
+        {
+          "type": "listItem",
+          "spread": false,
+          "checked": null,
+          "children": [
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "type": "text",
+                  "value": "Is this yet another?",
+                  "position": {
+                    "start": {
+                      "line": 13,
+                      "column": 3,
+                      "offset": 214
+                    },
+                    "end": {
+                      "line": 13,
+                      "column": 23,
+                      "offset": 234
+                    }
+                  }
+                }
+              ],
+              "position": {
+                "start": {
+                  "line": 13,
+                  "column": 3,
+                  "offset": 214
+                },
+                "end": {
+                  "line": 13,
+                  "column": 23,
+                  "offset": 234
+                }
+              }
+            }
+          ],
+          "position": {
+            "start": {
+              "line": 13,
+              "column": 1,
+              "offset": 212
+            },
+            "end": {
+              "line": 13,
+              "column": 23,
+              "offset": 234
+            }
+          }
+        }
+      ],
+      "position": {
+        "start": {
+          "line": 13,
+          "column": 1,
+          "offset": 212
+        },
+        "end": {
+          "line": 13,
+          "column": 23,
+          "offset": 234
+        }
+      }
+    },
+    {
+      "type": "paragraph",
+      "children": [
+        {
+          "type": "text",
+          "value": "This is annother incorrect sentence.",
+          "position": {
+            "start": {
+              "line": 15,
+              "column": 1,
+              "offset": 236
+            },
+            "end": {
+              "line": 15,
+              "column": 37,
+              "offset": 272
+            }
+          }
+        }
+      ],
+      "position": {
+        "start": {
+          "line": 15,
+          "column": 1,
+          "offset": 236
+        },
+        "end": {
+          "line": 15,
+          "column": 37,
+          "offset": 272
+        }
+      }
+    }
+  ],
+  "position": {
+    "start": {
+      "line": 1,
+      "column": 1,
+      "offset": 0
+    },
+    "end": {
+      "line": 16,
+      "column": 1,
+      "offset": 273
+    }
+  }
+}
