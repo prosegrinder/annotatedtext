@@ -1,3 +1,10 @@
+## v1.2.0 (2023-10-21)
+
+### Feat
+
+- add compose() and deprecate build() (#396)
+- add compose() and deprecate build()
+
 ## v1.1.4 (2022-12-12)
 
 ### Fix
