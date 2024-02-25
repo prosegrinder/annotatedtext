@@ -41,16 +41,16 @@
     "@types/chai": "^4.3.1",
     "@types/mocha": "^10.0.0",
     "@types/node": "^20.4.5",
-    "@typescript-eslint/eslint-plugin": "^7.0.0",
-    "@typescript-eslint/parser": "^6.7.5",
+    "@typescript-eslint/eslint-plugin": "^7.0.2",
+    "@typescript-eslint/parser": "^7.0.2",
     "chai": "^4.3.6",
-    "eslint": "^8.14.0",
+    "eslint": "^8.57.0",
     "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-jsdoc": "^48.2.0",
     "mocha": "^10.0.0",
     "remark-parse": "^10.0.1",
-    "typescript": "^5.0.3",
+    "typescript": "^5.3.3",
     "unified": "^10.1.2"
   }
 }
