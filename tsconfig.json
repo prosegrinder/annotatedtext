@@ -17,6 +17,7 @@
   "include": ["src/**/*.ts", "types/index.d.ts"],
   "typedocOptions": {
     "entryPoints": ["src/index.ts", "types/index.d.ts"],
+    "includeVersion": true,
     "out": "docs"
   }
 }
