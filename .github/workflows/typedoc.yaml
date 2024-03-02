@@ -1,6 +1,9 @@
 name: "typedoc"
 
 on:
+  push:
+    branches:
+      - main
   workflow_dispatch:
 
 permissions:
@@ -25,7 +28,7 @@ jobs:
       # Generate your TypeDoc documentation
       - run: npx typedoc
       # https://github.com/actions/upload-pages-artifact
-      - uses: actions/upload-pages-artifact@v2
+      - uses: actions/upload-pages-artifact@v3
         with:
           path: ./docs # This should be your TypeDoc "out" path.
   deploy-docs:
@@ -38,4 +41,4 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         # https://github.com/actions/deploy-pages
-        uses: actions/deploy-pages@v2
+        uses: actions/deploy-pages@v4
