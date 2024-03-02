@@ -1,0 +1,41 @@
+name: "typedoc"
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  build-docs:
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Checkout source code"
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Setup Node.js
+        uses: actions/setup-node@v4.0.2
+        with:
+          node-version: lts/*
+      - name: NPM Clean Install
+        run: npm ci
+      # Generate your TypeDoc documentation
+      - run: npx typedoc
+      # https://github.com/actions/upload-pages-artifact
+      - uses: actions/upload-pages-artifact@v2
+        with:
+          path: ./docs # This should be your TypeDoc "out" path.
+  deploy-docs:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    needs: build-docs
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        # https://github.com/actions/deploy-pages
+        uses: actions/deploy-pages@v2

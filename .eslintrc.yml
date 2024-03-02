@@ -11,6 +11,7 @@ parserOptions:
   sourceType: module
 plugins:
   - "@typescript-eslint"
+  - "eslint-plugin-tsdoc"
 ignorePatterns:
   - "node_modules"
   - "out"

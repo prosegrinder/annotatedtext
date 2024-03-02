@@ -71,3 +71,6 @@ out
 
 # Webpack Directory
 dist/
+
+# TypeDoc
+docs/
