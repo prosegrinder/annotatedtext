@@ -25,9 +25,11 @@ npm install annotatedtext –save
 converting markup documents into
 [AnnotatedText](https://languagetool.org/development/api/org/languagetool/markup/AnnotatedText.html).
 
-For example, to convert [Markdown]() to
+For example, to convert [Markdown](https://www.markdownguide.org/) to
 [AnnotatedText](https://languagetool.org/development/api/org/languagetool/markup/AnnotatedText.html)
-using the nifty [remark-parse]() parser, you would do:
+using the nifty
+[remark-parse](https://github.com/remarkjs/remark/tree/main/packages/remark-parse)
+parser, you would do:
 
 ```js
 import { compose } from "annotatedtext";
