@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 // "use strict";
 
-import chai from "chai";
+import * as chai from "chai";
 import { unified } from "unified";
 import remarkparse from "remark-parse";
 import * as builder from "../out/index.js";
