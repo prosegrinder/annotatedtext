@@ -1,37 +1,5 @@
 import { IAnnotatedtext, IAnnotation, INode, IOptions } from "../types";
 
-/**
- * @module annotatedtext
- * @example
- * import { compose } from "annotatedtext";
- * import { parse } from "remark-parse";
- * import { unified } from "unified";
- *
- * const text = "This is a sentence.";
- * const processor = unified()
- *    .use(remarkparse, options.remarkoptions)
- *    .use(frontmatter, ["yaml", "toml"])
- *    .parse(text);
- *
- * const annotatedtext = compose(text, parse);
- * console.log(annotatedtext);
- *
- * @description
- * This module provides functions for building annotated text
- * suitable for use with LanguageTool.
- *
- * @see https://languagetool.org/http-api/
- */
-
-/**
- * Default options for building annotated text.
- *
- * @property {function} children A function that returns the children of a node.
- * @property {function} annotatetextnode A function that returns an annotation
- *  for a text node.
- * @property {function} interpretmarkup A function that returns a string to use
- *  as the `interpretAs` property of an annotation.
- */
 const defaults: IOptions = {
   children(node: INode): INode[] {
     return node.children;
@@ -57,14 +25,6 @@ const defaults: IOptions = {
   },
 };
 
-/**
- * Collect text nodes from an AST.
- *
- * @param ast The AST to collect text nodes from.
- * @param text The text that the AST was generated from.
- * @param options Options to control how the text is parsed.
- * @returns An array of annotations for text nodes.
- */
 function collecttextnodes(
   ast: unknown,
   text: string,
@@ -87,14 +47,6 @@ function collecttextnodes(
   return textannotations;
 }
 
-/**
- * Compose an annotated text from an array of text nodes.
- *
- * @param text The text that the AST was generated from.
- * @param annotatedtextnodes An array of annotations for text nodes.
- * @param options Options to control how the text is parsed.
- * @returns An annotated text suitable for use with LanguageTool.
- */
 function composeannotation(
   text: string,
   annotatedtextnodes: IAnnotation[],
@@ -133,26 +85,6 @@ function composeannotation(
   return { annotation: annotations };
 }
 
-/**
- * Build an annotated text from a parser and some text
- * suitable for use with LanguageTool.
- *
- * @deprecated since version 1.2.0.
- * Will be deleted in version 2.0.
- *
- * Use `compose` instead. This was done to remove the
- * test dependencies on unified and remark-parse. This
- * library was never meant to be specific to those libraries
- * or any particularly text format (HTML, markdown, etc.).
- *
- * Libraries that use this library should be responsible for
- * parsing the text and passing the AST to this library.
- *
- * @param text The text to parse.
- * @param parse A function that parses the text and returns an AST.
- * @param options Options to control how the text is parsed.
- *
- */
 function build(
   text: string,
   parse: (_text: string) => void,
@@ -165,16 +97,6 @@ function build(
   return compose(text, nodes, options);
 }
 
-/**
- * Compose an annotated text from an AST and some text
- * suitable for use with LanguageTool.
- *
- * @param text The text to parse.
- * @param nodes The AST to use.
- * @param options Options to control how the text is parsed.
- * @returns An annotated text suitable for use with LanguageTool.
- *
- */
 function compose(
   text: string,
   nodes: INode,

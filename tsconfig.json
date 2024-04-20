@@ -16,7 +16,8 @@
   },
   "include": ["src/**/*.ts", "types/index.d.ts"],
   "typedocOptions": {
-    "entryPoints": ["src/index.ts", "types/index.d.ts"],
+    "entryPoints": ["types/index.d.ts"],
+    "sort": ["kind", "instance-first", "required-first", "alphabetical"],
     "includeVersion": true,
     "out": "docs"
   }
