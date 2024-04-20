@@ -100,7 +100,6 @@ export const defaults: IOptions;
 
 /**
  * Collect text nodes from an AST.
- * @protected
  *
  * @param ast The AST to collect text nodes from.
  * @param text The text that the AST was generated from.
@@ -115,7 +114,6 @@ export function collecttextnodes(
 
 /**
  * Compose an annotated text from an array of text nodes.
- * @protected
  *
  * @param text The text that the AST was generated from.
  * @param annotatedtextnodes An array of annotations for text nodes.
