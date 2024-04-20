@@ -2,16 +2,15 @@
  * @module annotatedtext
  * @example
  * import { compose } from "annotatedtext";
- * import { parse } from "remark-parse";
+ * import { remarkparse } from "remark-parse";
  * import { unified } from "unified";
  *
  * const text = "This is a sentence.";
- * const processor = unified()
- *    .use(remarkparse, options.remarkoptions)
- *    .use(frontmatter, ["yaml", "toml"])
- *    .parse(text);
+ * const nodes = unified()
+ *  .use(remarkparse, remarkoptions)
+ *  .parse(text) as annotatedtext.INode;
  *
- * const annotatedtext = compose(text, parse);
+ * const annotatedtext = compose(text, nodes);
  * console.log(annotatedtext);
  *
  * @description
