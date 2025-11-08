@@ -35,11 +35,11 @@ jobs:
       - name: NPM Run Build
         run: npm run build --if-present
       - name: NPM Publish Dry Run
-        uses: JS-DevTools/npm-publish@v3
+        uses: JS-DevTools/npm-publish@v4
         with:
           token: ${{ secrets.NPM_ACCESS_TOKEN }}
           dry-run: true
       - name: NPM Publish
-        uses: JS-DevTools/npm-publish@v3
+        uses: JS-DevTools/npm-publish@v4
         with:
           token: ${{ secrets.NPM_ACCESS_TOKEN }}
